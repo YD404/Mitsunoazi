@@ -1,0 +1,18 @@
+# .editorconfig ファイル（Unity C# 向け）
+
+# この設定ファイルをルートとして扱う
+root = true
+
+# すべてのファイルに適用
+[*]
+charset = utf-8-bom
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# C# ファイル専用の設定
+[*.cs]
+indent_style = space
+indent_size = 4
+charset = utf-8
+end_of_line = lf
