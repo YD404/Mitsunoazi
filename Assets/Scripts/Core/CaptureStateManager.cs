@@ -1,0 +1,147 @@
+using UnityEngine;
+using System.IO;
+
+// ★名前空間を追加
+namespace Mitsunoazi
+{
+    public class CaptureStateManager : MonoBehaviour
+    {
+        [Header("Dependencies")]
+        [SerializeField] private TimelinePlayer timelinePlayer; // これでTimelinePlayerが見つかる
+
+        private class CameraState
+        {
+            public enum State { Ready, SelectingStatus, Processing }
+            public State CurrentState = State.Ready;
+            public StatusManager.Status CurrentStatus = StatusManager.Status.Crazy;
+            public string BaseFileName;
+            public int CameraIndex;
+            public bool ConfirmationPending = false;
+        }
+
+        private CameraState[] cameraStates;
+        private const int MAX_CAMERAS = 5;
+
+        private void Start()
+        {
+            cameraStates = new CameraState[MAX_CAMERAS];
+            for (int i = 0; i < MAX_CAMERAS; i++)
+            {
+                cameraStates[i] = new CameraState { CameraIndex = i };
+            }
+
+            if (timelinePlayer == null)
+            {
+                Debug.LogWarning("TimelinePlayer is not assigned in the inspector. Timeline playback will be skipped.");
+            }
+        }
+
+        private void Update()
+        {
+            for (int i = 0; i < cameraStates.Length; i++)
+            {
+                var state = cameraStates[i];
+                if (state.CurrentState == CameraState.State.Ready) continue;
+
+                if (state.CurrentState == CameraState.State.SelectingStatus || state.CurrentState == CameraState.State.Processing)
+                {
+                    if (Input.GetKeyDown(KeyCode.Alpha0 + (i * 2)) || Input.GetKeyDown(KeyCode.Keypad0 + (i * 2)))
+                    {
+                        state.CurrentStatus = StatusManager.GetNextStatus(state.CurrentStatus);
+                        Debug.Log($"Camera {i}: Status changed to {state.CurrentStatus}");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Alpha0 + (i * 2 + 1)) || Input.GetKeyDown(KeyCode.Keypad0 + (i * 2 + 1)))
+                    {
+                        state.CurrentStatus = StatusManager.GetPreviousStatus(state.CurrentStatus);
+                        Debug.Log($"Camera {i}: Status changed to {state.CurrentStatus}");
+                    }
+                }
+
+                if (Input.GetKeyDown(KeyCode.A + i))
+                {
+                    if (state.CurrentState == CameraState.State.SelectingStatus)
+                    {
+                        HandleConfirm(i);
+                    }
+                    else if (state.CurrentState == CameraState.State.Processing)
+                    {
+                        state.ConfirmationPending = true;
+                        Debug.Log($"Camera {i}: Confirmation pending.");
+                    }
+                }
+            }
+        }
+
+        public bool IsCameraReady(int cameraIndex) => cameraStates[cameraIndex].CurrentState == CameraState.State.Ready;
+
+        public void NotifyCaptureStarted(int cameraIndex) => cameraStates[cameraIndex].CurrentState = CameraState.State.Processing;
+        
+        public async void OnCaptureComplete(int cameraIndex, Texture2D capturedImage, string timestamp)
+        {
+            try
+            {
+                var state = cameraStates[cameraIndex];
+                state.BaseFileName = $"webcam_{cameraIndex}_{timestamp}";
+                
+                string stagedPath = Path.Combine(Application.streamingAssetsPath, "ImageStaged", state.BaseFileName + ".png");
+
+                // ★ImageProcessorも同じ名前空間にあることを想定
+                await ImageProcessor.ProcessAndSaveImageAsync(capturedImage, stagedPath);
+                Destroy(capturedImage);
+                
+                Debug.Log($"Camera {cameraIndex}: Processing complete.");
+
+                if (state.ConfirmationPending)
+                {
+                    Debug.Log($"Camera {cameraIndex}: Executing pending confirmation.");
+                    HandleConfirm(cameraIndex);
+                }
+                else
+                {
+                    Debug.Log($"Camera {cameraIndex}: Now in status selection mode.");
+                    state.CurrentState = CameraState.State.SelectingStatus;
+                }
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"An error occurred during image processing for camera {cameraIndex}: {e.Message}");
+                var state = cameraStates[cameraIndex];
+                state.ConfirmationPending = false;
+                state.CurrentState = CameraState.State.Ready;
+            }
+        }
+        public void NotifyCaptureFinished(int cameraIndex)
+        {
+            if (cameraIndex < 0 || cameraIndex >= cameraStates.Length) return;
+    
+            var state = cameraStates[cameraIndex];
+            state.CurrentState = CameraState.State.Ready;
+            state.ConfirmationPending = false;
+            Debug.Log($"Camera {cameraIndex}: Capture failed or was cancelled. State has been reset to Ready.");
+        }
+        private void HandleConfirm(int cameraIndex)
+        {
+            var state = cameraStates[cameraIndex];
+            if (state.CurrentState == CameraState.State.Ready) return;
+
+            string stagedFileName = state.BaseFileName + ".png";
+            string confirmedFileName = state.BaseFileName + $"_{state.CurrentStatus}.png";
+            
+            string stagedPath = Path.Combine(Application.streamingAssetsPath, "ImageStaged", stagedFileName);
+            string confirmedPath = Path.Combine(Application.streamingAssetsPath, "ImageConfirmed", confirmedFileName);
+            
+            // ★ImageProcessorも同じ名前空間にあることを想定
+            ImageProcessor.MoveAndRenameConfirmedFile(stagedPath, confirmedPath);
+            Debug.Log($"Camera {cameraIndex}: Confirmed. File moved to {confirmedPath}");
+            
+            if (timelinePlayer != null)
+            {
+                timelinePlayer.Play(confirmedPath, state.CurrentStatus);
+            }
+            
+            state.CurrentState = CameraState.State.Ready;
+            state.CurrentStatus = StatusManager.Status.Crazy;
+            state.ConfirmationPending = false; 
+        }
+    }
+}
