@@ -16,21 +16,16 @@ sysinfo.txt
 *.user
 *.userprefs
 
-# --- Assetsは基本すべて無視 ---
-/Assets/**
+# --- Assetsは追跡する。重いファイルだけ除外 ---
+# StreamingAssets 全体を除外
+/Assets/StreamingAssets/**
 
-# ただし Scripts は追跡
-!/Assets/Scripts/
-!/Assets/Scripts/**
+# Medias 配下を除外したい場合（.meta と README は残す）
+# /Assets/Medias/**
+# !/Assets/Medias/**/*.meta
+# !/Assets/Medias/**/README.md
 
-# Packages/ と ProjectSettings/ は必須
-!/Packages/
-!/Packages/**
-!/ProjectSettings/
-!/ProjectSettings/**
-
-# StreamingAssetsや重い資産は無視（保険で拡張子も無視）
-/Assets/StreamingAssets/
+# 画像・動画・音声など大きなバイナリを除外
 *.png
 *.jpg
 *.jpeg
@@ -44,9 +39,19 @@ sysinfo.txt
 *.mp4
 *.mov
 *.avi
+
+# フォントや3Dモデルなど
 *.ttf
 *.otf
 *.fbx
 *.blend
+
+# 圧縮ファイル
 *.zip
 *.7z
+
+# --- 必須フォルダは常に追跡 ---
+!/Packages/
+!/Packages/**
+!/ProjectSettings/
+!/ProjectSettings/**
