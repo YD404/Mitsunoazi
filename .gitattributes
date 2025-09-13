@@ -1,0 +1,26 @@
+* text=auto eol=lf
+
+# Unityのテキストアセット（今回はScenes等は追跡しない想定だが保険）
+*.meta   text
+*.unity  text
+*.prefab text
+*.anim   text
+*.controller text
+*.mat    text
+*.asset  text
+
+# スクリプト
+*.cs     text
+
+# バイナリは差分しない
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.psd binary
+*.mp3 binary
+*.wav binary
+*.ogg binary
+*.mp4 binary
+*.mov binary
+*.ttf binary
+*.otf binary

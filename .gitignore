@@ -1,0 +1,52 @@
+# --- Unity標準の重いディレクトリ ---
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild*/
+[Ll]ogs/
+[Uu]serSettings/
+MemoryCaptures/
+sysinfo.txt
+
+# --- IDE/生成物 ---
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.user
+*.userprefs
+
+# --- Assetsは基本すべて無視 ---
+/Assets/**
+
+# ただし Scripts は追跡
+!/Assets/Scripts/
+!/Assets/Scripts/**
+
+# Packages/ と ProjectSettings/ は必須
+!/Packages/
+!/Packages/**
+!/ProjectSettings/
+!/ProjectSettings/**
+
+# StreamingAssetsや重い資産は無視（保険で拡張子も無視）
+/Assets/StreamingAssets/
+*.png
+*.jpg
+*.jpeg
+*.psd
+*.tga
+*.tif
+*.tiff
+*.mp3
+*.wav
+*.ogg
+*.mp4
+*.mov
+*.avi
+*.ttf
+*.otf
+*.fbx
+*.blend
+*.zip
+*.7z
