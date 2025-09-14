@@ -3,56 +3,36 @@
   "WorkspaceRootPath": "D:\\Document\\Unity project\\Mitsunoazi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Features\\ImageStage\\Presentation\\CaptureSelectFlowDriver.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Features\\ImageStage\\Presentation\\CaptureSelectFlowDriver.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\CaptureStateManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\CaptureStateManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Files\\WebcamCaptureService.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\Files\\WebcamCaptureService.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\WebcamCaptureManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\WebcamCaptureManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Files\\PhotoType.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\Files\\PhotoType.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\TimelinePlayer.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\TimelinePlayer.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Files\\ImageCaptureService.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\Files\\ImageCaptureService.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\SubDisplayManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\SubDisplayManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Features\\ImageStage\\Presentation\\ImageStageDriver.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Features\\ImageStage\\Presentation\\ImageStageDriver.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\TimelineInfo.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\TimelineInfo.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Features\\ImageStage\\Application\\ConfirmFlowController.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Features\\ImageStage\\Application\\ConfirmFlowController.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\CleanupAssetsOnQuit.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\CleanupAssetsOnQuit.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Input\\IInputService.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\Input\\IInputService.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\StatusManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\StatusManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Files\\IImageMover.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\Files\\IImageMover.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Files\\LocalImageMover.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\Files\\LocalImageMover.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Features\\ImageStage\\Application\\ImageStageSettings.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Features\\ImageStage\\Application\\ImageStageSettings.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\DevOnly\\Editor\\ScaffoldProject.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\DevOnly\\Editor\\ScaffoldProject.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Features\\ImageStage\\Domain\\ConfirmQueue.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Features\\ImageStage\\Domain\\ConfirmQueue.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Input\\UnityInputService.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\Input\\UnityInputService.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\ImageProcessor.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\ImageProcessor.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,175 +42,110 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CaptureSelectFlowDriver.cs",
-              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Features\\ImageStage\\Presentation\\CaptureSelectFlowDriver.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Features\\ImageStage\\Presentation\\CaptureSelectFlowDriver.cs",
-              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Features\\ImageStage\\Presentation\\CaptureSelectFlowDriver.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Features\\ImageStage\\Presentation\\CaptureSelectFlowDriver.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T09:05:26.56Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "WebcamCaptureService.cs",
-              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Files\\WebcamCaptureService.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\Files\\WebcamCaptureService.cs",
-              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Files\\WebcamCaptureService.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Core\\Files\\WebcamCaptureService.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAIwEQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T09:03:57.102Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PhotoType.cs",
-              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Files\\PhotoType.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\Files\\PhotoType.cs",
-              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Files\\PhotoType.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Core\\Files\\PhotoType.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T08:58:55.347Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ImageCaptureService.cs",
-              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Files\\ImageCaptureService.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\Files\\ImageCaptureService.cs",
-              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Files\\ImageCaptureService.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Core\\Files\\ImageCaptureService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADkAAAAAAAAA",
+              "Title": "SubDisplayManager.cs",
+              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\SubDisplayManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\SubDisplayManager.cs",
+              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\SubDisplayManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\SubDisplayManager.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAUwEsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T08:43:53.424Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "LocalImageMover.cs",
-              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Files\\LocalImageMover.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\Files\\LocalImageMover.cs",
-              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Files\\LocalImageMover.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Core\\Files\\LocalImageMover.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T08:13:11.849Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IImageMover.cs",
-              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Files\\IImageMover.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\Files\\IImageMover.cs",
-              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Files\\IImageMover.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Core\\Files\\IImageMover.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T08:12:48.724Z",
+              "WhenOpened": "2025-09-13T15:52:04.821Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ImageStageDriver.cs",
-              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Features\\ImageStage\\Presentation\\ImageStageDriver.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Features\\ImageStage\\Presentation\\ImageStageDriver.cs",
-              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Features\\ImageStage\\Presentation\\ImageStageDriver.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Features\\ImageStage\\Presentation\\ImageStageDriver.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAAAAAA",
+              "Title": "TimelineInfo.cs",
+              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\TimelineInfo.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\TimelineInfo.cs",
+              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\TimelineInfo.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\TimelineInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T08:01:31.636Z",
+              "WhenOpened": "2025-09-13T14:59:17.256Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ConfirmQueue.cs",
-              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Features\\ImageStage\\Domain\\ConfirmQueue.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Features\\ImageStage\\Domain\\ConfirmQueue.cs",
-              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Features\\ImageStage\\Domain\\ConfirmQueue.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Features\\ImageStage\\Domain\\ConfirmQueue.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "TimelinePlayer.cs",
+              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\TimelinePlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\TimelinePlayer.cs",
+              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\TimelinePlayer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\TimelinePlayer.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAUwG0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T08:00:40.148Z",
+              "WhenOpened": "2025-09-13T14:08:39.466Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ConfirmFlowController.cs",
-              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Features\\ImageStage\\Application\\ConfirmFlowController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Features\\ImageStage\\Application\\ConfirmFlowController.cs",
-              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Features\\ImageStage\\Application\\ConfirmFlowController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Features\\ImageStage\\Application\\ConfirmFlowController.cs",
-              "ViewState": "AQIAADYAAAAAAAAAAADwv0AAAAAAAAAA",
+              "Title": "CleanupAssetsOnQuit.cs",
+              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\CleanupAssetsOnQuit.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\CleanupAssetsOnQuit.cs",
+              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\CleanupAssetsOnQuit.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\CleanupAssetsOnQuit.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T08:00:29.055Z",
+              "WhenOpened": "2025-09-13T13:37:40.931Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "UnityInputService.cs",
-              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Input\\UnityInputService.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\Input\\UnityInputService.cs",
-              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Input\\UnityInputService.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Core\\Input\\UnityInputService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "CaptureStateManager.cs",
+              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\CaptureStateManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\CaptureStateManager.cs",
+              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\CaptureStateManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\CaptureStateManager.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAArwHMAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T07:59:03.996Z",
+              "WhenOpened": "2025-09-13T12:48:17.688Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "IInputService.cs",
-              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Input\\IInputService.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\Input\\IInputService.cs",
-              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\Input\\IInputService.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Core\\Input\\IInputService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Title": "StatusManager.cs",
+              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\StatusManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\StatusManager.cs",
+              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\StatusManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\StatusManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T07:58:46.34Z",
+              "WhenOpened": "2025-09-13T12:09:56.559Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ImageStageSettings.cs",
-              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Features\\ImageStage\\Application\\ImageStageSettings.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Features\\ImageStage\\Application\\ImageStageSettings.cs",
-              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Features\\ImageStage\\Application\\ImageStageSettings.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Features\\ImageStage\\Application\\ImageStageSettings.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAwAgAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "WebcamCaptureManager.cs",
+              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\WebcamCaptureManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\WebcamCaptureManager.cs",
+              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\WebcamCaptureManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\WebcamCaptureManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T07:07:20.642Z",
+              "WhenOpened": "2025-09-13T11:44:04.324Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ScaffoldProject.cs",
-              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\DevOnly\\Editor\\ScaffoldProject.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\DevOnly\\Editor\\ScaffoldProject.cs",
-              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\DevOnly\\Editor\\ScaffoldProject.cs",
-              "RelativeToolTip": "Assets\\Scripts\\DevOnly\\Editor\\ScaffoldProject.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAAAwFUAAAAmAAAA",
+              "DocumentIndex": 7,
+              "Title": "ImageProcessor.cs",
+              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\ImageProcessor.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\ImageProcessor.cs",
+              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\ImageProcessor.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\ImageProcessor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T07:05:18.406Z",
+              "WhenOpened": "2025-09-13T12:10:31.278Z",
               "EditorCaption": ""
             }
           ]
