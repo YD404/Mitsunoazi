@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity Project "Mitsunoazi" Specifications</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+            background-color: #f8fafc; /* Lighter gray background */
+            color: #111827; /* Almost black for text */
+        }
+        .container {
+            max-width: 1024px;
+        }
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+        .card:hover {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            transform: translateY(-2px);
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+        .icon {
+            width: 24px;
+            height: 24px;
+            stroke-width: 2;
+        }
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .flow-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            background-color: #f9fafb;
+            min-height: 180px;
+            justify-content: center;
+        }
+        .flow-item .icon {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 0.75rem;
+            color: #4b5563;
+        }
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+        .tag-gray { background-color: #e5e7eb; color: #374151; }
+        .tag-blue { background-color: #dbeafe; color: #1e40af; }
+        .tag-green { background-color: #d1fae5; color: #065f46; }
+        .tag-yellow { background-color: #fef9c3; color: #854d0e; }
+        .tag-red { background-color: #fee2e2; color: #991b1b; }
+        .status-crazy { color: #be185d; }
+        .status-attacker { color: #c2410c; }
+        .status-blocker { color: #1d4ed8; }
+        .status-healer { color: #16a34a; }
+        .highlight {
+            background-color: #fef9c3; /* Tailwind's yellow-100 */
+            padding: 2px 5px;
+            margin: 0 1px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #1f2937; /* Tailwind's gray-800 for readability */
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 md:p-8">
+        
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2">Project "Mitsunoazi"</h1>
+            <p class="text-lg text-gray-600">ビジュアル仕様書</p>
+        </header>
+
+        <!-- Project Overview -->
+        <section id="overview" class="mb-12">
+            <div class="card p-8">
+                <div class="flex items-center mb-4">
+                    <i data-lucide="box" class="icon text-gray-700 mr-3"></i>
+                    <h2 class="text-2xl font-semibold">1. プロジェクト概要</h2>
+                </div>
+                <p class="text-gray-700 leading-relaxed">
+                    複数のウェブカメラから入力された映像をキャプチャし、ユーザーが選択した<strong class="font-semibold">Status</strong>（<span class="status-crazy font-semibold">Crazy</span> / <span class="status-attacker font-semibold">Attacker</span> / <span class="status-blocker font-semibold">Blocker</span> / <span class="status-healer font-semibold">Healer</span>）を付与します。確定された画像は、対応する<strong class="font-semibold">タイムライン演出</strong>で再生された後、<strong class="font-semibold">サブディスプレイ</strong>に累積表示されます。
+                </p>
+            </div>
+        </section>
+
+        <!-- System Requirements -->
+        <section id="requirements" class="mb-12">
+            <div class="card p-8">
+                <div class="flex items-center mb-6">
+                    <i data-lucide="cpu" class="icon text-gray-700 mr-3"></i>
+                    <h2 class="text-2xl font-semibold">2. システム要件</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="flex items-center p-4 bg-gray-50 rounded-lg">
+                        <i data-lucide="package" class="icon text-gray-600 mr-4"></i>
+                        <div>
+                            <h3 class="font-semibold">Unityバージョン</h3>
+                            <p class="text-gray-600">2022.3.6f1 (2D)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-4 bg-gray-50 rounded-lg">
+                        <i data-lucide="monitor" class="icon text-gray-600 mr-4"></i>
+                        <div>
+                            <h3 class="font-semibold">ディスプレイ解像度</h3>
+                            <p class="text-gray-600">1920 x 1080 (想定)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-4 bg-gray-50 rounded-lg">
+                        <i data-lucide="camera" class="icon text-gray-600 mr-4"></i>
+                        <div>
+                            <h3 class="font-semibold">Webカメラ解像度</h3>
+                            <p class="text-gray-600">640 x 360</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Flow -->
+        <section id="main-flow" class="mb-12">
+            <div class="card p-8">
+                <div class="flex items-center mb-6">
+                    <i data-lucide="waypoints" class="icon text-gray-700 mr-3"></i>
+                    <h2 class="text-2xl font-semibold">3. 主要フロー</h2>
+                </div>
+                <div class="space-y-2">
+                    <!-- Step 1: Capture -->
+                    <div class="flow-step">
+                        <button class="w-full flex items-center justify-between p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition cursor-pointer text-left accordion-header">
+                            <span class="flex items-center">
+                                <i data-lucide="camera" class="mr-3 text-gray-600"></i>
+                                <span class="font-semibold">1. キャプチャ</span>
+                            </span>
+                            <i data-lucide="chevron-down" class="toggle-icon transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content hidden p-4 bg-white border border-t-0 border-gray-200 rounded-b-lg">
+                            <p class="text-gray-700">ユーザーが<strong class="font-semibold">数字キー (0–9)</strong>を押すと、対応するカメラで映像キャプチャを開始し、状態が <strong class="font-semibold">Processing</strong> へ移行します。</p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center py-1"><i data-lucide="arrow-down" class="text-gray-400"></i></div>
+
+                    <!-- Step 2: Image Processing -->
+                    <div class="flow-step">
+                        <button class="w-full flex items-center justify-between p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition cursor-pointer text-left accordion-header">
+                            <span class="flex items-center">
+                                <i data-lucide="wand-2" class="mr-3 text-gray-600"></i>
+                                <span class="font-semibold">2. 画像処理</span>
+                            </span>
+                            <i data-lucide="chevron-down" class="toggle-icon transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content hidden p-4 bg-white border border-t-0 border-gray-200 rounded-b-lg">
+                            <p class="text-gray-700">Unity内で<strong class="font-semibold">輝度</strong>に基づき、画素の<strong class="font-semibold">透過処理</strong>を行います。</p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center py-1"><i data-lucide="arrow-down" class="text-gray-400"></i></div>
+
+                    <!-- Step 3: Temporary Save -->
+                     <div class="flow-step">
+                        <button class="w-full flex items-center justify-between p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition cursor-pointer text-left accordion-header">
+                            <span class="flex items-center">
+                                <i data-lucide="save" class="mr-3 text-gray-600"></i>
+                                <span class="font-semibold">3. 一時保存</span>
+                            </span>
+                            <i data-lucide="chevron-down" class="toggle-icon transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content hidden p-4 bg-white border border-t-0 border-gray-200 rounded-b-lg">
+                            <p class="text-gray-700">生画像を <code class="text-sm bg-gray-200 p-1 rounded">ImageCapture/</code> に、透過後画像を <code class="text-sm bg-gray-200 p-1 rounded">ImageStaged/</code> に保存します。</p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center py-1"><i data-lucide="arrow-down" class="text-gray-400"></i></div>
+
+                    <!-- Step 4: Status Selection -->
+                    <div class="flow-step">
+                        <button class="w-full flex items-center justify-between p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition cursor-pointer text-left accordion-header">
+                            <span class="flex items-center">
+                                <i data-lucide="list-checks" class="mr-3 text-gray-600"></i>
+                                <span class="font-semibold">4. ステータス選択</span>
+                            </span>
+                            <i data-lucide="chevron-down" class="toggle-icon transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content hidden p-4 bg-white border border-t-0 border-gray-200 rounded-b-lg">
+                            <p class="text-gray-700"><code class="text-sm bg-gray-200 p-1 rounded">Processing</code> 中、または処理完了後の <code class="text-sm bg-gray-200 p-1 rounded">SelectingStatus</code> 状態中に、数字キーで Status を選択します。</p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center py-1"><i data-lucide="arrow-down" class="text-gray-400"></i></div>
+
+                    <!-- Step 5: Confirm -->
+                    <div class="flow-step">
+                        <button class="w-full flex items-center justify-between p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition cursor-pointer text-left accordion-header">
+                            <span class="flex items-center">
+                                <i data-lucide="check-circle" class="mr-3 text-gray-600"></i>
+                                <span class="font-semibold">5. 確定</span>
+                            </span>
+                            <i data-lucide="chevron-down" class="toggle-icon transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content hidden p-4 bg-white border border-t-0 border-gray-200 rounded-b-lg">
+                           <p class="text-gray-700"><strong class="font-semibold">A–Eキー</strong>で画像を確定します。<code class="text-sm bg-gray-200 p-1 rounded">Processing</code> 中に押された場合は「<strong class="font-semibold">確定予約</strong>」として保持し、処理完了時に自動実行されます。</p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center py-1"><i data-lucide="arrow-down" class="text-gray-400"></i></div>
+
+                    <!-- Step 6: Final Save -->
+                    <div class="flow-step">
+                        <button class="w-full flex items-center justify-between p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition cursor-pointer text-left accordion-header">
+                            <span class="flex items-center">
+                                <i data-lucide="folder-check" class="mr-3 text-gray-600"></i>
+                                <span class="font-semibold">6. 最終保存</span>
+                            </span>
+                            <i data-lucide="chevron-down" class="toggle-icon transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content hidden p-4 bg-white border border-t-0 border-gray-200 rounded-b-lg">
+                           <p class="text-gray-700"><code class="text-sm bg-gray-200 p-1 rounded">ImageStaged/</code> 内のファイル名にステータス名を付与し、<code class="text-sm bg-gray-200 p-1 rounded">ImageConfirmed/</code> へ移動します。</p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center py-1"><i data-lucide="arrow-down" class="text-gray-400"></i></div>
+                    
+                    <!-- Step 7: Timeline Playback -->
+                     <div class="flow-step">
+                        <button class="w-full flex items-center justify-between p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition cursor-pointer text-left accordion-header">
+                            <span class="flex items-center">
+                                <i data-lucide="film" class="mr-3 text-gray-600"></i>
+                                <span class="font-semibold">7. タイムライン再生</span>
+                            </span>
+                            <i data-lucide="chevron-down" class="toggle-icon transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content hidden p-4 bg-white border border-t-0 border-gray-200 rounded-b-lg">
+                           <p class="text-gray-700">確定したステータスに応じたプレハブから<strong class="font-semibold">ランダムに1つを選択</strong>し、演出を再生します。</p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center py-1"><i data-lucide="arrow-down" class="text-gray-400"></i></div>
+
+                    <!-- Step 8: Sub-display -->
+                     <div class="flow-step">
+                        <button class="w-full flex items-center justify-between p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition cursor-pointer text-left accordion-header">
+                            <span class="flex items-center">
+                                <i data-lucide="monitor-dot" class="mr-3 text-gray-600"></i>
+                                <span class="font-semibold">8. サブディスプレイ表示</span>
+                            </span>
+                            <i data-lucide="chevron-down" class="toggle-icon transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content hidden p-4 bg-white border border-t-0 border-gray-200 rounded-b-lg">
+                           <p class="text-gray-700">タイムライン再生終了後、該当画像をサブディスプレイへ<strong class="font-semibold">追加表示</strong>します。</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Details -->
+        <section id="details" class="mb-12">
+            <div class="card p-8">
+                <div class="flex items-center mb-6">
+                    <i data-lucide="list-tree" class="icon text-gray-700 mr-3"></i>
+                    <h2 class="text-2xl font-semibold">4. 機能仕様詳細</h2>
+                </div>
+
+                <!-- 4.1 Keyboard Input -->
+                <div class="mb-8 p-6 bg-gray-50 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center"><i data-lucide="keyboard" class="mr-2 h-5 w-5"></i>4.1. 入力（キーマップ）</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead class="bg-gray-200">
+                                <tr>
+                                    <th class="p-3 font-semibold">割り当て</th>
+                                    <th class="p-3 font-semibold">キャプチャ / ステータス選択</th>
+                                    <th class="p-3 font-semibold">確定キー</th>
+                                    <th class="p-3 font-semibold">備考</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b"><td class="p-3">カメラ 0</td><td class="p-3"><span class="tag tag-gray">0</span>, <span class="tag tag-gray">1</span></td><td class="p-3"><span class="tag tag-green">A</span></td><td class="p-3">0: 正順, 1: 逆順</td></tr>
+                                <tr class="border-b"><td class="p-3">カメラ 1</td><td class="p-3"><span class="tag tag-gray">2</span>, <span class="tag tag-gray">3</span></td><td class="p-3"><span class="tag tag-green">B</span></td><td class="p-3">2: 正順, 3: 逆順</td></tr>
+                                <tr class="border-b"><td class="p-3">カメラ 2</td><td class="p-3"><span class="tag tag-gray">4</span>, <span class="tag tag-gray">5</span></td><td class="p-3"><span class="tag tag-green">C</span></td><td class="p-3">4: 正順, 5: 逆順</td></tr>
+                                <tr class="border-b"><td class="p-3">カメラ 3</td><td class="p-3"><span class="tag tag-gray">6</span>, <span class="tag tag-gray">7</span></td><td class="p-3"><span class="tag tag-green">D</span></td><td class="p-3">6: 正順, 7: 逆順</td></tr>
+                                <tr><td class="p-3">カメラ 4</td><td class="p-3"><span class="tag tag-gray">8</span>, <span class="tag tag-gray">9</span></td><td class="p-3"><span class="tag tag-green">E</span></td><td class="p-3">8: 正順, 9: 逆順</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="font-semibold mb-2">ステータス選択順序</h4>
+                        <p class="text-gray-700 flex items-center gap-2">正順: <span class="font-bold status-crazy">Crazy</span> → <span class="font-bold status-attacker">Attacker</span> → <span class="font-bold status-blocker">Blocker</span> → <span class="font-bold status-healer">Healer</span> → ...</p>
+                        <p class="text-gray-700 flex items-center gap-2">逆順: <span class="font-bold status-crazy">Crazy</span> → <span class="font-bold status-healer">Healer</span> → <span class="font-bold status-blocker">Blocker</span> → <span class="font-bold status-attacker">Attacker</span> → ...</p>
+                    </div>
+                </div>
+
+                <!-- 4.2 State Management -->
+                <div class="mb-8 p-6 bg-gray-50 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center"><i data-lucide="server" class="mr-2 h-5 w-5"></i>4.2. 状態管理 (カメラ単位)</h3>
+                    <div class="flex flex-col md:flex-row justify-around items-center gap-4 text-center">
+                        <div>
+                             <span class="tag tag-green mb-2">Ready</span>
+                             <p class="text-sm"><strong class="font-semibold">数字キー押下</strong>で `Processing` へ</p>
+                        </div>
+                        <i data-lucide="arrow-right" class="w-8 h-8 text-gray-400 rotate-90 md:rotate-0"></i>
+                         <div>
+                             <span class="tag tag-yellow mb-2">Processing</span>
+                              <p class="text-sm">画像処理完了後、<strong class="font-semibold">予約がなければ</strong> `SelectingStatus` へ、<strong class="font-semibold">予約があれば</strong> `Ready` へ</p>
+                        </div>
+                         <i data-lucide="arrow-right" class="w-8 h-8 text-gray-400 rotate-90 md:rotate-0"></i>
+                         <div>
+                             <span class="tag tag-blue mb-2">SelectingStatus</span>
+                             <p class="text-sm"><strong class="font-semibold">確定キー</strong>で確定処理後、 `Ready` へ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.3 Image Processing -->
+                <div class="mb-8 p-6 bg-gray-50 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center"><i data-lucide="image" class="mr-2 h-5 w-5"></i>4.3. 画像処理・ファイル管理</h3>
+                    <p class="mb-4">輝度 (<code class="text-sm bg-gray-200 p-1 rounded">0.299×R + 0.587×G + 0.114×B</code>) が<strong class="font-semibold">上位10%以上</strong>の画素を透明化します。</p>
+                    <div class="space-y-3">
+                        <p><i data-lucide="folder" class="inline-block mr-2 h-5 w-5 text-gray-600"></i><span class="font-semibold">ImageCapture/:</span> キャプチャした生のPNG画像</p>
+                        <p><i data-lucide="folder" class="inline-block mr-2 h-5 w-5 text-gray-600"></i><span class="font-semibold">ImageStaged/:</span> 透過処理後の一次保存PNG画像 (<code class="text-xs">webcam_&lt;camIdx&gt;_&lt;timestamp&gt;.png</code>)</p>
+                        <p><i data-lucide="folder-check" class="inline-block mr-2 h-5 w-5 text-green-600"></i><span class="font-semibold">ImageConfirmed/:</span> ステータス確定後の最終保存PNG画像 (<code class="text-xs">webcam_&lt;camIdx&gt;_&lt;timestamp&gt;_&lt;Status&gt;.png</code>)</p>
+                    </div>
+                </div>
+
+                <!-- Other sections -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                         <h3 class="text-xl font-semibold mb-4 flex items-center"><i data-lucide="play-circle" class="mr-2 h-5 w-5"></i>4.4. タイムライン再生</h3>
+                         <p class="text-gray-700"><strong class="font-semibold">`PlayableDirector`</strong>で再生。<strong class="font-semibold">`TimelineInfo`</strong>が参照する`SpriteRenderer`に画像を差し替え。再生停止時にサブディスプレイへ通知後、インスタンスを破棄します。</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                         <h3 class="text-xl font-semibold mb-4 flex items-center"><i data-lucide="monitor-dot" class="mr-2 h-5 w-5"></i>4.5. サブディスプレイ表示</h3>
+                         <p class="text-gray-700">起動時に`ImageConfirmed/`内の全画像を表示。タイムライン停止時に<strong class="font-semibold">`AddNewImage(path)`</strong>を介して画像を追加します。</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Script Structure -->
+        <section id="scripts" class="mb-12">
+            <div class="card p-8">
+                <div class="flex items-center mb-6">
+                    <i data-lucide="file-code-2" class="icon text-gray-700 mr-3"></i>
+                    <h2 class="text-2xl font-semibold">5. スクリプト構成と役割</h2>
+                </div>
+
+                <!-- Folder Structure -->
+                <div class="mb-8 p-6 bg-gray-100 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">5.1. フォルダ構成 (主要部分)</h3>
+                    <pre class="text-sm text-gray-800 bg-gray-200 p-4 rounded-md overflow-x-auto"><code>Assets/
+├── Scripts/
+│   ├── Add/
+│   ├── Core/
+│   ├── DevOnly/  # 現状スクリプトなし
+│   └── Sys/
+├── StreamingAssets/
+│   ├── ImageCapture/
+│   ├── ImageConfirmed/
+│   └── ImageStaged/
+└── ... (Prefabs, Scenes, etc.)</code></pre>
+                </div>
+
+                <!-- Script Roles -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-3 text-blue-800">5.2 Core スクリプト</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong class="font-semibold">WebcamCaptureManager:</strong> WebCamTextureでキャプチャ実行、生PNG保存。</li>
+                            <li><strong class="font-semibold">CaptureStateManager:</strong> カメラ状態と確定予約を管理。ファイル移動とTimelinePlayer呼出。</li>
+                            <li><strong class="font-semibold">ImageProcessor:</strong> 画像の透過処理とPNG保存、ファイル移動を担当。</li>
+                            <li><strong class="font-semibold">StatusManager:</strong> Status列挙型の管理と循環選択APIを提供。</li>
+                            <li><strong class="font-semibold">TimelinePlayer:</strong> プレハブ再生、Sprite差替、インスタンス破棄を管理。</li>
+                            <li><strong class="font-semibold">TimelineInfo:</strong> SpriteRendererへの参照を保持。</li>
+                        </ul>
+                    </div>
+                     <div class="p-4 bg-gray-50 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-800">5.3 Sys スクリプト</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong class="font-semibold">CleanupAssetsOnQuit:</strong> 終了時に一時保存フォルダをクリーンアップ。</li>
+                            <li><strong class="font-semibold">SubDisplayManager:</strong> サブディスプレイ有効化と画像表示・管理。</li>
+                            <li><strong class="font-semibold">BgmLooper:</strong> BGMループ再生と音量調整機能を提供。</li>
+                        </ul>
+                    </div>
+                     <div class="p-4 bg-gray-50 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-3 text-green-800">5.4 Add スクリプト</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong class="font-semibold">SubImagePosition:</strong> サブディスプレイ上の画像の初期座標を記録。</li>
+                            <li><strong class="font-semibold">SubImageMotion:</strong> Perlinノイズで画像を微小に動かす。</li>
+                            <li><strong class="font-semibold">SubImageStart:</strong> 画像登場時のアニメーションを制御。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Principles -->
+        <section id="rules" class="mb-12">
+            <div class="card p-8">
+                <div class="flex items-center mb-6">
+                    <i data-lucide="book-check" class="icon text-gray-700 mr-3"></i>
+                    <h2 class="text-2xl font-semibold">6. 開発規約</h2>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-lg">
+                     <ul class="list-disc list-inside space-y-2 text-gray-700">
+                         <li><strong class="font-semibold">仕様の遵守:</strong> 本仕様書に記載された内容を正とし、<strong class="text-red-600 font-semibold">許可なく仕様を変更・追加しないこと。</strong></li>
+                         <li><strong class="font-semibold">解釈の確認:</strong> 仕様に不明瞭な点や解釈の余地がある場合は、<strong class="text-red-600 font-semibold">自己判断で実装を進めず、必ず事前に確認を行うこと。</strong>実装に着手する際は、どのように仕様を解釈したかを逐一報告することが望ましい。</li>
+                     </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Git Management -->
+        <section id="git" class="mb-12">
+            <div class="card p-8">
+                <div class="flex items-center mb-6">
+                    <i data-lucide="git-branch" class="icon text-gray-700 mr-3"></i>
+                    <h2 class="text-2xl font-semibold">7. Git管理</h2>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- 7.1 Clone -->
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4 flex items-center"><i data-lucide="download" class="mr-2 h-5 w-5"></i>7.1. Gitからのクローン方法</h3>
+                        <ol class="list-decimal list-inside space-y-3 text-gray-700">
+                            <li><span class="highlight">Gitをインストール</span>したのち、Unityの<span class="highlight">プロジェクトを保存したい場所でターミナルを開きます</span>。</li>
+                            <li>
+                                以下のコマンドを実行して、<span class="highlight">リポジトリをローカルにクローン</span>します。<br>
+                                <code class="text-sm bg-gray-200 p-2 rounded-md block my-2 overflow-x-auto">git clone https://github.com/YD404/Mitsunoazi.git</code>
+                            </li>
+                            <li><span class="highlight">UnityHub</span>を開き、「開く」→「ディスクから加える」で、<span class="highlight">ローカルにクローンしたプロジェクトフォルダを選択</span>します。</li>
+                            <li>
+                                <a href="https://drive.google.com/drive/u/0/folders/1m5U-zat7o2gFH-JHdymc0D63nq0ASw65" target="_blank" class="text-blue-600 hover:underline"><span class="highlight">Googleドライブからzipファイルをダウンロード</span></a>します。
+                            </li>
+                            <li>Unityでプロジェクトが開いたら、<span class="highlight">ダウンロードしたzipファイルの中身を、プロジェクト内の同じ名前の場所にコピー＆ペースト</span>してください。</li>
+                        </ol>
+                    </div>
+
+                    <!-- 7.2 Push -->
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4 flex items-center"><i data-lucide="upload" class="mr-2 h-5 w-5"></i>7.2. プッシュの仕方</h3>
+                        <p class="text-gray-600">後ほど追記</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task List -->
+        <section id="tasks" class="mb-12">
+            <div class="card p-8">
+                <div class="flex items-center mb-6">
+                    <i data-lucide="clipboard-list" class="icon text-gray-700 mr-3"></i>
+                    <h2 class="text-2xl font-semibold">8. タスクリスト</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Fixes -->
+                    <div class="p-6 bg-red-50 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4 flex items-center text-red-800"><i data-lucide="wrench" class="mr-2 h-5 w-5"></i>修正</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>タイムラインで流れ終わった画像が<strong class="font-semibold text-red-700">サブディスプレイに行かない</strong></li>
+                            <li>サブディスプレイの手前に来るべき画像が、サブディスプレイに追加された画像より<strong class="font-semibold text-red-700">奥に表示されてしまう</strong></li>
+                        </ul>
+                    </div>
+                    <!-- Additions -->
+                    <div class="p-6 bg-green-50 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4 flex items-center text-green-800"><i data-lucide="plus-circle" class="mr-2 h-5 w-5"></i>追加</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong class="font-semibold">待機状態時のタイムライン（プレハブ）アニメーション</strong>
+                                <ul class="list-['-_'] list-inside ml-4 text-sm text-gray-600">
+                                    <li>キャプチャが始まり、タイムラインが流れ終わるまでは待機状態のタイムラインアニメは新規で追加されない</li>
+                                </ul>
+                            </li>
+                            <li><strong class="font-semibold">ステータス選択時の画像・音声</strong></li>
+                            <li><strong class="font-semibold">確定時の音声</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const icon = header.querySelector('.toggle-icon');
+                    
+                    content.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
