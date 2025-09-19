@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{1BB21C18-097E-9BBA-6DE2-79E9501A2FD4}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/taikigamen/QuadrantPlacer.cs">
+    <Files>
+      <File FileName="Assets/Scripts/taikigamen/PrefabRandomSpawner.cs" Line="52" Column="34" />
+      <File FileName="Assets/Scripts/taikigamen/QuadrantPlacer.cs" Line="31" Column="6" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Mitsunoazi" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="taikigamen" expanded="True">
+                  <Node name="QuadrantPlacer.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c3e0eba3-91f4-4206-8ee6-fa06c4708a75" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
