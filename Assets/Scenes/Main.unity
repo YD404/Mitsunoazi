@@ -154,7 +154,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &120300871
+--- !u!1 &105398788
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,47 +162,62 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 120300872}
-  - component: {fileID: 120300873}
+  - component: {fileID: 105398789}
+  - component: {fileID: 105398790}
   m_Layer: 0
-  m_Name: PrefabSpawnerManager
+  m_Name: SpawningDirector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &120300872
+--- !u!4 &105398789
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120300871}
+  m_GameObject: {fileID: 105398788}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7831899, y: -0.07426478, z: -0.025918573}
+  m_LocalPosition: {x: 0.32576656, y: 0.045558497, z: 0.0067626573}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &120300873
+--- !u!114 &105398790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120300871}
+  m_GameObject: {fileID: 105398788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0259a8cfcfdd41b89077fae8ed8f317, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c54725f507444fdfb59bf54028942c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabsToSpawn:
-  - {fileID: 689702135716202165, guid: b53bd7c9741be451c9b46edf49b98c5d, type: 3}
-  minSpawnInterval: 10
-  maxSpawnInterval: 20
-  padding: 1
+  minSpawnInterval: 4
+  maxSpawnInterval: 8
+  pattern2Frequency: 4
+  areaConfigs:
+  - areaName: top right
+    quadrant: 0
+    pattern1_Prefab: {fileID: 3463597624190424038, guid: 9566ab46a7c754f50ba3ca1c842ae9e0, type: 3}
+    pattern2_Prefab: {fileID: 9118052777768874039, guid: 5824c120b4d2442e294f398262c0cd05, type: 3}
+  - areaName: bottom left
+    quadrant: 2
+    pattern1_Prefab: {fileID: 5034009214040354310, guid: 96a55df5f82dc46b39742dd58a0abed3, type: 3}
+    pattern2_Prefab: {fileID: 6787032994969761486, guid: 9899061f3e05d401592cd0e95ea16beb, type: 3}
+  - areaName: top left
+    quadrant: 3
+    pattern1_Prefab: {fileID: 4998845607980142288, guid: 5810f21a479984c9894f26aa1b2868c1, type: 3}
+    pattern2_Prefab: {fileID: 3204488926843160277, guid: 73e33294b671043beb742ac993d0098e, type: 3}
+  - areaName: bottm right
+    quadrant: 1
+    pattern1_Prefab: {fileID: 3290208140861562097, guid: 19c7512c700484f27b293b30e6817323, type: 3}
+    pattern2_Prefab: {fileID: 2860601450442315304, guid: c14e8ad303fbf444c9ee9a7cf4c3fc03, type: 3}
 --- !u!1 &189704839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,4 +1300,4 @@ SceneRoots:
   - {fileID: 1154053845}
   - {fileID: 1173752615}
   - {fileID: 458738039}
-  - {fileID: 120300872}
+  - {fileID: 105398789}
