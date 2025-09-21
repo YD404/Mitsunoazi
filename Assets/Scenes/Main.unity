@@ -154,6 +154,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &105398788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 105398789}
+  - component: {fileID: 105398790}
+  m_Layer: 0
+  m_Name: SpawningDirector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &105398789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105398788}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.32576656, y: 0.045558497, z: 0.0067626573}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &105398790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105398788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c54725f507444fdfb59bf54028942c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpawnInterval: 4
+  maxSpawnInterval: 8
+  pattern2Frequency: 3
+  areaConfigs:
+  - areaName: top right
+    quadrant: 0
+    pattern1_Prefab: {fileID: 1772431907244764972, guid: 1c4a65fbf55354179b6b369baa30b705, type: 3}
+    pattern2_Prefab: {fileID: 9118052777768874039, guid: 5824c120b4d2442e294f398262c0cd05, type: 3}
+  - areaName: bottom left
+    quadrant: 2
+    pattern1_Prefab: {fileID: 5590893213060750951, guid: 3658a796a7f404296a6de83ec7d1ceb9, type: 3}
+    pattern2_Prefab: {fileID: 6787032994969761486, guid: 9899061f3e05d401592cd0e95ea16beb, type: 3}
+  - areaName: top left
+    quadrant: 3
+    pattern1_Prefab: {fileID: 4998845607980142288, guid: 79110fecee9c294418e1f47b467712b8, type: 3}
+    pattern2_Prefab: {fileID: 3204488926843160277, guid: 73e33294b671043beb742ac993d0098e, type: 3}
+  - areaName: bottm right
+    quadrant: 1
+    pattern1_Prefab: {fileID: 8116017097719252501, guid: f52b7aecd1f514b759a2746613a7ffc4, type: 3}
+    pattern2_Prefab: {fileID: 2860601450442315304, guid: c14e8ad303fbf444c9ee9a7cf4c3fc03, type: 3}
 --- !u!1 &189704839
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +782,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a4230cd827bf1a7498bfd7ebbdd8ae37, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd7cd046e3353dc498cc513d488842a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1236,3 +1300,4 @@ SceneRoots:
   - {fileID: 1154053845}
   - {fileID: 1173752615}
   - {fileID: 458738039}
+  - {fileID: 105398789}

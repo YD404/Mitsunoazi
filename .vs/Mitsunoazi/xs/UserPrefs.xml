@@ -1,0 +1,37 @@
+﻿<Properties StartupConfiguration="{1BB21C18-097E-9BBA-6DE2-79E9501A2FD4}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Core/TimelinePlayer.cs">
+    <Files>
+      <File FileName="Assets/Scripts/taikigamen/QuadrantPositioner.cs" Line="43" Column="2" />
+      <File FileName="Assets/Scripts/taikigamen/QuadrantPlacer.cs" />
+      <File FileName="Assets/Scripts/taikigamen/DestroyAfterTime.cs" />
+      <File FileName="Assets/Scripts/taikigamen/Director.cs" />
+      <File FileName="Assets/Scripts/Sys/SubDisplayManager.cs" />
+      <File FileName="Assets/Scripts/Core/CaptureStateManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Core/TimelinePlayer.cs" Line="12" Column="37" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Mitsunoazi" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Core" expanded="True">
+                  <Node name="TimelinePlayer.cs" selected="True" />
+                </Node>
+                <Node name="Sys" expanded="True" />
+                <Node name="taikigamen" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d47a93f4-a6d3-4f4b-b031-a32d83eeea1a" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
