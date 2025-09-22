@@ -1,11 +1,15 @@
 using UnityEngine;
 using System.IO;
+using System;
 
 // ★名前空間を追加
 namespace Mitsunoazi
 {
     public class CaptureStateManager : MonoBehaviour
     {
+        public event Action<int, StatusManager.Status> OnStatusChanged;
+        public event Action<int> OnConfirm;
+
         [Header("Dependencies")]
         [SerializeField] private TimelinePlayer timelinePlayer; // これでTimelinePlayerが見つかる
 
@@ -48,11 +52,13 @@ namespace Mitsunoazi
                     if (Input.GetKeyDown(KeyCode.Alpha0 + (i * 2)) || Input.GetKeyDown(KeyCode.Keypad0 + (i * 2)))
                     {
                         state.CurrentStatus = StatusManager.GetNextStatus(state.CurrentStatus);
+                        OnStatusChanged?.Invoke(i, state.CurrentStatus); 
                         Debug.Log($"Camera {i}: Status changed to {state.CurrentStatus}");
                     }
                     else if (Input.GetKeyDown(KeyCode.Alpha0 + (i * 2 + 1)) || Input.GetKeyDown(KeyCode.Keypad0 + (i * 2 + 1)))
                     {
                         state.CurrentStatus = StatusManager.GetPreviousStatus(state.CurrentStatus);
+                        OnStatusChanged?.Invoke(i, state.CurrentStatus); 
                         Debug.Log($"Camera {i}: Status changed to {state.CurrentStatus}");
                     }
                 }
@@ -138,6 +144,7 @@ namespace Mitsunoazi
             {
                 timelinePlayer.Play(confirmedPath, state.CurrentStatus);
             }
+            OnConfirm?.Invoke(cameraIndex);
             
             state.CurrentState = CameraState.State.Ready;
             state.CurrentStatus = StatusManager.Status.Crazy;
