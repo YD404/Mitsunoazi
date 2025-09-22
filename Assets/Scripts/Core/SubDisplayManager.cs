@@ -17,12 +17,6 @@ namespace Mitsunoazi
 
         private void Start()
         {
-            // サブディスプレイをアクティベート
-            if (Display.displays.Length > 1)
-            {
-                Display.displays[1].Activate();
-            }
-
             confirmedImagePath = Path.Combine(Application.streamingAssetsPath, "ImageConfirmed");
             if (!Directory.Exists(confirmedImagePath))
             {
