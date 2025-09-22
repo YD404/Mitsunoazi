@@ -1529,6 +1529,7 @@ MonoBehaviour:
   statusImageRight: {fileID: 1153279599}
   displayTimeoutSeconds: 5
   commonStatusChangeClip: {fileID: 8300000, guid: 461ca3b7ac0179e4ebc412e6e3bb2399, type: 3}
+  confirmationClip: {fileID: 8300000, guid: 609023b516a404348a84bb9d28c596b1, type: 3}
   statusUIDataArray:
   - status: 0
     sprite: {fileID: 21300000, guid: 074d46418e4616b44a7443a81c3dea5c, type: 3}
