@@ -16,9 +16,11 @@ sysinfo.txt
 *.user
 *.userprefs
 
-# --- Assetsは追跡する。重いファイルだけ除外 ---
-# StreamingAssets 全体を除外
-/Assets/StreamingAssets/**
+# Medias配下をすべて無視
+Assets/Medias/
+# フォルダ自体の.metaも無視
+Assets/Medias.meta
+
 
 # Medias 配下を除外したい場合（.meta と README は残す）
 # /Assets/Medias/**
