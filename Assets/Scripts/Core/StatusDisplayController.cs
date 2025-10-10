@@ -21,11 +21,15 @@ namespace Mitsunoazi
         [Tooltip("イベントの発生元となるCaptureStateManager")] // インスペクターでマウスオーバーした際に表示される説明文
         [SerializeField]
         private CaptureStateManager captureStateManager;
-
+        
         [Tooltip("効果音を再生するためのAudioSourceコンポーネント")]
         [SerializeField]
         private AudioSource audioSource;
-        
+
+        [Tooltip("アイドル動画再生を制御するコントローラー")]
+        [SerializeField]
+        private IdleVideoController idleVideoController;
+
         [Header("UI Elements")]
         [Tooltip("カメラIndexが偶数の時に使用するImage")]
         [SerializeField]
@@ -111,7 +115,7 @@ namespace Mitsunoazi
                 captureStateManager.OnConfirm -= HandleConfirm;
             }
         }
-        
+
         // =====================================================================
         // イベントハンドラ（イベント発生時に実行されるメソッド）
         // =====================================================================
@@ -123,10 +127,16 @@ namespace Mitsunoazi
         /// <param name="newStatus">変更後の新しいステータス</param>
         private void HandleStatusChange(int cameraIndex, StatusManager.Status newStatus)
         {
-            // ステータス変更音を再生する
-            if (audioSource != null && commonStatusChangeClip != null)
+            // ステータス変更音を再生する
+            if (audioSource != null && commonStatusChangeClip != null)
             {
                 audioSource.PlayOneShot(commonStatusChangeClip);
+            }
+
+            // アイドル動画コントローラーにタイマーのリセットを指示する
+            if (idleVideoController != null)
+            {
+                idleVideoController.ResetIdleTimer(cameraIndex);
             }
 
             // カメラ番号が偶数か奇数かで、操作対象のUI（とタイマー）を決定する
@@ -170,10 +180,15 @@ namespace Mitsunoazi
         /// ステータスが確定された（OnConfirm）イベント発生時に実行される処理
         /// </summary>
         /// <param name="cameraIndex">確定があったカメラの番号</param>
-        private void HandleConfirm(int cameraIndex)
+        private void HandleConfirm(int cameraIndex)
         {
             Debug.Log($"[StatusDisplayController] カメラ {cameraIndex} の確定イベント受信");
 
+            // アイドル動画コントローラーに監視の完全停止を指示する
+            if (idleVideoController != null)
+            {
+                idleVideoController.CancelIdleState(cameraIndex);
+            }
             // 確定音を再生する
             if (audioSource != null && confirmationClip != null)
             {
