@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5387544008494220125
+--- !u!1 &2194583330274627236
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 682863302402517100}
-  - component: {fileID: 5783290780270694124}
-  - component: {fileID: 1717206043947531794}
+  - component: {fileID: 7836749943118753512}
+  - component: {fileID: 5919886965869423450}
+  - component: {fileID: 9108670875001855597}
   m_Layer: 0
   m_Name: futuuniaruku_migisita_00000
   m_TagString: Untagged
@@ -18,28 +18,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &682863302402517100
+--- !u!4 &7836749943118753512
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5387544008494220125}
+  m_GameObject: {fileID: 2194583330274627236}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.8, y: 2.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9157010110325229331}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5783290780270694124
+--- !u!212 &5919886965869423450
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5387544008494220125}
+  m_GameObject: {fileID: 2194583330274627236}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a3403faae62354d61a70266df8c78c5a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -85,17 +85,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1717206043947531794
+--- !u!95 &9108670875001855597
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5387544008494220125}
+  m_GameObject: {fileID: 2194583330274627236}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fe10d5e29416e4629b7c95dbf71d92ec, type: 2}
+  m_Controller: {fileID: 9100000, guid: 27b25da3938bc95469319c31f9bc6b9d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -138,7 +138,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 682863302402517100}
+  - {fileID: 7836749943118753512}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1248251147970882783
@@ -157,7 +157,7 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 3274454156611067787, guid: b76d813800e744aba9dfdb0d7761ded2, type: 2}
-    value: {fileID: 5387544008494220125}
+    value: {fileID: 2194583330274627236}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &7488512624198826367
