@@ -2,7 +2,6 @@ using UnityEngine;
 using System.IO;
 using System;
 
-// ★名前空間を追加
 namespace Mitsunoazi
 {
     public class CaptureStateManager : MonoBehaviour
@@ -11,7 +10,7 @@ namespace Mitsunoazi
         public event Action<int> OnConfirm;
 
         [Header("Dependencies")]
-        [SerializeField] private TimelinePlayer timelinePlayer; // これでTimelinePlayerが見つかる
+        [SerializeField] private TimelinePlayer timelinePlayer;
 
         private class CameraState
         {
@@ -63,7 +62,18 @@ namespace Mitsunoazi
                     }
                 }
 
-                if (Input.GetKeyDown(KeyCode.A + i))
+                // マウスクリックで確認処理
+                bool mouseClick = false;
+                if (i % 2 == 0) // カメラ0,2,4: 左クリック
+                {
+                    mouseClick = Input.GetMouseButtonDown(0);
+                }
+                else // カメラ1,3: 右クリック
+                {
+                    mouseClick = Input.GetMouseButtonDown(1);
+                }
+
+                if (mouseClick)
                 {
                     if (state.CurrentState == CameraState.State.SelectingStatus)
                     {
@@ -91,7 +101,6 @@ namespace Mitsunoazi
                 
                 string stagedPath = Path.Combine(Application.streamingAssetsPath, "ImageStaged", state.BaseFileName + ".png");
 
-                // ★ImageProcessorも同じ名前空間にあることを想定
                 await ImageProcessor.ProcessAndSaveImageAsync(capturedImage, stagedPath);
                 Destroy(capturedImage);
                 
@@ -116,6 +125,7 @@ namespace Mitsunoazi
                 state.CurrentState = CameraState.State.Ready;
             }
         }
+
         public void NotifyCaptureFinished(int cameraIndex)
         {
             if (cameraIndex < 0 || cameraIndex >= cameraStates.Length) return;
@@ -125,6 +135,7 @@ namespace Mitsunoazi
             state.ConfirmationPending = false;
             Debug.Log($"Camera {cameraIndex}: Capture failed or was cancelled. State has been reset to Ready.");
         }
+
         private void HandleConfirm(int cameraIndex)
         {
             var state = cameraStates[cameraIndex];
@@ -132,20 +143,23 @@ namespace Mitsunoazi
 
             string stagedFileName = state.BaseFileName + ".png";
             string confirmedFileName = state.BaseFileName + $"_{state.CurrentStatus}.png";
-            
+    
             string stagedPath = Path.Combine(Application.streamingAssetsPath, "ImageStaged", stagedFileName);
             string confirmedPath = Path.Combine(Application.streamingAssetsPath, "ImageConfirmed", confirmedFileName);
-            
-            // ★ImageProcessorも同じ名前空間にあることを想定
+    
             ImageProcessor.MoveAndRenameConfirmedFile(stagedPath, confirmedPath);
             Debug.Log($"Camera {cameraIndex}: Confirmed. File moved to {confirmedPath}");
-            
+    
             if (timelinePlayer != null)
             {
-                timelinePlayer.Play(confirmedPath, state.CurrentStatus);
+                // カメラインデックスからクリックタイプを判定
+                TimelinePlayer.ClickType clickType = (cameraIndex % 2 == 0) ? 
+                    TimelinePlayer.ClickType.Left : TimelinePlayer.ClickType.Right;
+        
+                timelinePlayer.Play(confirmedPath, state.CurrentStatus, clickType);
             }
             OnConfirm?.Invoke(cameraIndex);
-            
+    
             state.CurrentState = CameraState.State.Ready;
             state.CurrentStatus = StatusManager.Status.Crazy;
             state.ConfirmationPending = false; 

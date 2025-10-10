@@ -172,23 +172,46 @@ namespace Mitsunoazi
         /// <param name="cameraIndex">確定があったカメラの番号</param>
         private void HandleConfirm(int cameraIndex)
         {
+            Debug.Log($"[StatusDisplayController] カメラ {cameraIndex} の確定イベント受信");
+
             // 確定音を再生する
             if (audioSource != null && confirmationClip != null)
             {
                 audioSource.PlayOneShot(confirmationClip);
+                Debug.Log($"[StatusDisplayController] 確定音再生");
             }
+
+            // ★★★ タイムライン再生中フラグをオンにする ★★★
+            Director.IsTimelinePlaying = true;
+            Debug.Log($"[StatusDisplayController] タイムライン再生フラグをONに設定");
 
             // 確定されたカメラが偶数か奇数かを判断し、該当する側のタイマー停止と非表示処理のみを行う
             bool isEven = cameraIndex % 2 == 0;
             if (isEven)
             {
-                if (leftTimeoutCoroutine != null) StopCoroutine(leftTimeoutCoroutine);
-                if (statusImageLeft != null) statusImageLeft.gameObject.SetActive(false);
+                if (leftTimeoutCoroutine != null) 
+                {
+                    StopCoroutine(leftTimeoutCoroutine);
+                    Debug.Log($"[StatusDisplayController] 左側タイマー停止");
+                }
+                if (statusImageLeft != null) 
+                {
+                    statusImageLeft.gameObject.SetActive(false);
+                    Debug.Log($"[StatusDisplayController] 左側画像非表示");
+                }
             }
             else
             {
-                if (rightTimeoutCoroutine != null) StopCoroutine(rightTimeoutCoroutine);
-                if (statusImageRight != null) statusImageRight.gameObject.SetActive(false);
+                if (rightTimeoutCoroutine != null) 
+                {
+                    StopCoroutine(rightTimeoutCoroutine);
+                    Debug.Log($"[StatusDisplayController] 右側タイマー停止");
+                }
+                if (statusImageRight != null) 
+                {
+                    statusImageRight.gameObject.SetActive(false);
+                    Debug.Log($"[StatusDisplayController] 右側画像非表示");
+                }
             }
         }
 

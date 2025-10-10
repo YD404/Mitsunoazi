@@ -1,10 +1,8 @@
-// Assets/Scripts/Core/TimelinePlayer.cs
 using UnityEngine;
 using UnityEngine.Playables;
 using System.IO;
 using System.Collections.Generic;
 
-// ★SubDisplayManagerを使用するため、namespaceを追記（プロジェクト構成に合わせる）
 namespace Mitsunoazi
 {
     public class TimelinePlayer : MonoBehaviour
@@ -15,30 +13,54 @@ namespace Mitsunoazi
         [SerializeField] private List<GameObject> blockerTimelinePrefabs;
         [SerializeField] private List<GameObject> healerTimelinePrefabs;
 
-        [Header("Dependencies")] // ★ヘッダーを追加して整理
-        [SerializeField] private SubDisplayManager subDisplayManager; // ★SubDisplayManagerへの参照を追加
+        [Header("Dependencies")]
+        [SerializeField] private SubDisplayManager subDisplayManager;
 
-        public void Play(string imagePath, StatusManager.Status status)
+        // クリックタイプを表すenum
+        public enum ClickType { Left, Right }
+
+        public void Play(string imagePath, StatusManager.Status status, ClickType clickType)
         {
+            Debug.Log($"[TimelinePlayer] タイムライン再生開始 - ステータス: {status}, 画像: {imagePath}, クリック: {clickType}");
+
+            Director.IsTimelinePlaying = true;
+            Debug.Log($"[TimelinePlayer] タイムライン再生フラグをONに設定");
+
             List<GameObject> targetList = GetPrefabListByStatus(status);
 
             if (targetList == null || targetList.Count == 0)
             {
-                Debug.LogWarning($"[TimelinePlayer] No timeline prefabs assigned for status: {status}");
+                Debug.LogWarning($"[TimelinePlayer] ステータス {status} に対応するタイムラインプレハブがありません");
+                Director.IsTimelinePlaying = false;
+                Debug.Log($"[TimelinePlayer] 再生失敗のためフラグをOFFに設定");
                 return;
             }
 
-            GameObject prefabToPlay = targetList[Random.Range(0, targetList.Count)];
+            // クリックタイプに基づいてプレハブを選択
+            GameObject prefabToPlay = GetPrefabByClickType(targetList, clickType);
+            
+            if (prefabToPlay == null)
+            {
+                Debug.LogError($"[TimelinePlayer] プレハブの選択に失敗しました");
+                Director.IsTimelinePlaying = false;
+                Debug.Log($"[TimelinePlayer] 選択失敗のためフラグをOFFに設定");
+                return;
+            }
+
+            Debug.Log($"[TimelinePlayer] プレハブ選択: {prefabToPlay.name} (クリックタイプ: {clickType})");
+    
             GameObject timelineInstance = Instantiate(prefabToPlay, this.transform);
+            Debug.Log($"[TimelinePlayer] タイムラインインスタンス生成");
 
             PlayableDirector director = timelineInstance.GetComponent<PlayableDirector>();
             TimelineInfo timelineInfo = timelineInstance.GetComponent<TimelineInfo>();
 
-            // ★TimelineInfoのプロパティ名が仕様書と異なるため、提供されたコードに合わせる
             if (director == null || timelineInfo == null || timelineInfo.ImageDisplayRenderer == null)
             {
-                Debug.LogError($"[TimelinePlayer] The prefab '{prefabToPlay.name}' is not configured correctly.", timelineInstance);
+                Debug.LogError($"[TimelinePlayer] プレハブ '{prefabToPlay.name}' の設定が不正です");
                 Destroy(timelineInstance);
+                Director.IsTimelinePlaying = false;
+                Debug.Log($"[TimelinePlayer] 設定エラーのためフラグをOFFに設定");
                 return;
             }
 
@@ -46,39 +68,64 @@ namespace Mitsunoazi
             if (sprite != null)
             {
                 timelineInfo.ImageDisplayRenderer.sprite = sprite;
-            }
-            
-            // ★再生終了時の処理を専用メソッドに委譲
-            director.stopped += (d) => OnTimelineStopped(timelineInstance, imagePath);
-
-            director.Play();
-        }
-
-        // ★再生終了時に呼び出されるメソッドを新設
-        private void OnTimelineStopped(GameObject timelineInstance, string imagePath)
-        {
-            // 1. サブディスプレイに画像を追加するよう通知
-            if (subDisplayManager != null)
-            {
-                subDisplayManager.AddNewImage(imagePath);
+                Debug.Log($"[TimelinePlayer] 画像をスプライトに設定: {imagePath}");
             }
             else
             {
-                // SubDisplayManagerが設定されていない場合でも動作は継続させる
-                Debug.LogWarning("[TimelinePlayer] SubDisplayManager is not assigned. Skipping sub-display update.");
+                Debug.LogWarning($"[TimelinePlayer] 画像の読み込みに失敗: {imagePath}");
+            }
+    
+            director.stopped += (d) => OnTimelineStopped(timelineInstance, imagePath);
+            director.Play();
+            Debug.Log($"[TimelinePlayer] プレイアブルディレクター再生開始");
+        }
+
+        private GameObject GetPrefabByClickType(List<GameObject> prefabList, ClickType clickType)
+        {
+            if (prefabList == null || prefabList.Count == 0)
+                return null;
+
+            // クリックタイプに基づいてインデックスを決定
+            int index = (clickType == ClickType.Left) ? 0 : 1;
+            
+            // インデックスがリスト範囲内かチェック
+            if (index >= prefabList.Count)
+            {
+                Debug.LogWarning($"[TimelinePlayer] インデックス {index} はリスト範囲外です。リストサイズ: {prefabList.Count}. 代わりに最初の要素を使用します。");
+                index = 0;
+            }
+            
+            return prefabList[index];
+        }
+
+        private void OnTimelineStopped(GameObject timelineInstance, string imagePath)
+        {
+            Debug.Log($"[TimelinePlayer] タイムライン再生終了コールバック");
+
+            if (subDisplayManager != null)
+            {
+                subDisplayManager.AddNewImage(imagePath);
+                Debug.Log($"[TimelinePlayer] サブディスプレイに画像追加通知: {imagePath}");
+            }
+            else
+            {
+                Debug.LogWarning("[TimelinePlayer] SubDisplayManagerが未設定です");
             }
 
-            // 2. タイムラインインスタンスを破棄
             if (timelineInstance != null)
             {
-                // stoppedイベントは複数回呼ばれる可能性を考慮し、リスナーを明示的に解除することが望ましい
                 PlayableDirector director = timelineInstance.GetComponent<PlayableDirector>();
                 if(director != null)
                 {
                     director.stopped -= (d) => OnTimelineStopped(timelineInstance, imagePath);
+                    Debug.Log($"[TimelinePlayer] イベントリスナー解除");
                 }
                 Destroy(timelineInstance);
+                Debug.Log($"[TimelinePlayer] タイムラインインスタンス破棄");
             }
+
+            Director.IsTimelinePlaying = false;
+            Debug.Log($"[TimelinePlayer] タイムライン再生フラグをOFFに設定");
         }
 
         private List<GameObject> GetPrefabListByStatus(StatusManager.Status status)

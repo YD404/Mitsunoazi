@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "D:\\Document\\Unity project\\Mitsunoazi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Sys\\SubDisplayActivator.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Sys\\SubDisplayActivator.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\taikigamen\\Director.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\taikigamen\\Director.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\SubDisplayManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\SubDisplayManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Sys\\SubDisplayManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Sys\\SubDisplayManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\TimelinePlayer.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\TimelinePlayer.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\StatusDisplayController.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\StatusDisplayController.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\TimelineInfo.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\TimelineInfo.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Sys\\SubDisplayActivator.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Sys\\SubDisplayActivator.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\CaptureStateManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\CaptureStateManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\SubDisplayManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\SubDisplayManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\StatusManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
@@ -29,14 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\WebcamCaptureManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\WebcamCaptureManager.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\TimelinePlayer.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\TimelinePlayer.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\TimelineInfo.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Core\\TimelineInfo.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\ImageProcessor.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
@@ -55,95 +55,99 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Director.cs",
+              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\taikigamen\\Director.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\taikigamen\\Director.cs",
+              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\taikigamen\\Director.cs",
+              "RelativeToolTip": "Assets\\Scripts\\taikigamen\\Director.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAwGAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T10:13:00.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "SubDisplayActivator.cs",
               "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Sys\\SubDisplayActivator.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Sys\\SubDisplayActivator.cs",
               "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Sys\\SubDisplayActivator.cs",
               "RelativeToolTip": "Assets\\Scripts\\Sys\\SubDisplayActivator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAAAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-22T09:10:18.678Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "SubDisplayManager.cs",
               "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\SubDisplayManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\SubDisplayManager.cs",
               "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\SubDisplayManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Core\\SubDisplayManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-22T09:10:02.698Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-22T09:10:02.698Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "SubDisplayManager.cs",
-              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Sys\\SubDisplayManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Sys\\SubDisplayManager.cs",
-              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Sys\\SubDisplayManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Sys\\SubDisplayManager.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAcwEsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-22T09:07:31.58Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "StatusDisplayController.cs",
               "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\StatusDisplayController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\StatusDisplayController.cs",
               "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\StatusDisplayController.cs",
               "RelativeToolTip": "Assets\\Scripts\\Core\\StatusDisplayController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAANcAAAAAAAAA",
+              "ViewState": "AgIAANQAAAAAAAAAAAAYwK0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-22T07:24:50.384Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "TimelineInfo.cs",
               "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\TimelineInfo.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\TimelineInfo.cs",
               "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\TimelineInfo.cs",
               "RelativeToolTip": "Assets\\Scripts\\Core\\TimelineInfo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T14:59:17.256Z"
+              "WhenOpened": "2025-09-13T14:59:17.256Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "TimelinePlayer.cs",
               "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\TimelinePlayer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\TimelinePlayer.cs",
               "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\TimelinePlayer.cs",
               "RelativeToolTip": "Assets\\Scripts\\Core\\TimelinePlayer.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAUwG0AAAAAAAAA",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAiwBQAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T14:08:39.466Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CaptureStateManager.cs",
-              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\CaptureStateManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\CaptureStateManager.cs",
-              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\CaptureStateManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Core\\CaptureStateManager.cs",
-              "ViewState": "AQIAAGUAAADApRKe0JsgwI0AAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T12:48:17.688Z",
+              "WhenOpened": "2025-09-13T14:08:39.466Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "CaptureStateManager.cs",
+              "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\CaptureStateManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\CaptureStateManager.cs",
+              "ToolTip": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\CaptureStateManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\CaptureStateManager.cs",
+              "ViewState": "AgIAAGUAAADApRKe0JsgwI0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T12:48:17.688Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "StatusManager.cs",
               "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\StatusManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\StatusManager.cs",
@@ -151,12 +155,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Core\\StatusManager.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T12:09:56.559Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-13T12:09:56.559Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "WebcamCaptureManager.cs",
               "DocumentMoniker": "D:\\Document\\Unity project\\Mitsunoazi\\Assets\\Scripts\\Core\\WebcamCaptureManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\WebcamCaptureManager.cs",

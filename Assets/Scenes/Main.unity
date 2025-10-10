@@ -200,24 +200,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpawnInterval: 4
   maxSpawnInterval: 8
-  pattern2Frequency: 3
+  pattern2Frequency: 2
   areaConfigs:
   - areaName: top right
     quadrant: 0
     pattern1_Prefab: {fileID: 1772431907244764972, guid: 1c4a65fbf55354179b6b369baa30b705, type: 3}
-    pattern2_Prefab: {fileID: 9118052777768874039, guid: 5824c120b4d2442e294f398262c0cd05, type: 3}
+    pattern2_Prefab: {fileID: 1772431907244764972, guid: a3a2390a3fc766f4cb3d9161ef1f0923, type: 3}
   - areaName: bottom left
     quadrant: 2
     pattern1_Prefab: {fileID: 5590893213060750951, guid: 3658a796a7f404296a6de83ec7d1ceb9, type: 3}
-    pattern2_Prefab: {fileID: 6787032994969761486, guid: 9899061f3e05d401592cd0e95ea16beb, type: 3}
+    pattern2_Prefab: {fileID: 5590893213060750951, guid: 8958e5f9f5330ab408ab32bff12a409d, type: 3}
   - areaName: top left
     quadrant: 3
     pattern1_Prefab: {fileID: 4998845607980142288, guid: 79110fecee9c294418e1f47b467712b8, type: 3}
-    pattern2_Prefab: {fileID: 3204488926843160277, guid: 73e33294b671043beb742ac993d0098e, type: 3}
+    pattern2_Prefab: {fileID: 4998845607980142288, guid: 133131a1430425e4299666c0100e6a69, type: 3}
   - areaName: bottm right
     quadrant: 1
     pattern1_Prefab: {fileID: 8116017097719252501, guid: f52b7aecd1f514b759a2746613a7ffc4, type: 3}
-    pattern2_Prefab: {fileID: 2860601450442315304, guid: c14e8ad303fbf444c9ee9a7cf4c3fc03, type: 3}
+    pattern2_Prefab: {fileID: 8116017097719252501, guid: dfadfe1cec311f945a211983702eb1de, type: 3}
 --- !u!1 &189704839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,11 +1359,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8171dd728fd347f4dbdc77aa384549ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crazyTimelinePrefabs: []
+  crazyTimelinePrefabs:
+  - {fileID: 4371032065179896218, guid: 2ac00b99d50cb494d9b86e4f2a0dce12, type: 3}
+  - {fileID: 4371032065179896218, guid: 2ac00b99d50cb494d9b86e4f2a0dce12, type: 3}
   attackerTimelinePrefabs:
+  - {fileID: 4371032065179896218, guid: 8cb38322870018848a98426844303be4, type: 3}
   - {fileID: 4371032065179896218, guid: d9779e51a1727734792649bb04bbf62b, type: 3}
-  blockerTimelinePrefabs: []
-  healerTimelinePrefabs: []
+  blockerTimelinePrefabs:
+  - {fileID: 4371032065179896218, guid: ba34be53d2530ec448f6fa9c9fffaee9, type: 3}
+  - {fileID: 4371032065179896218, guid: eb9eb3af3a3990a4bbe8662a57cf251f, type: 3}
+  healerTimelinePrefabs:
+  - {fileID: 4371032065179896218, guid: fb93136a1ea762b42add2b3cb30c5c8b, type: 3}
+  - {fileID: 4371032065179896218, guid: 6ee4abc978e005a47ba4c04990485bcc, type: 3}
   subDisplayManager: {fileID: 1154053846}
 --- !u!320 &1464507460
 PlayableDirector:
