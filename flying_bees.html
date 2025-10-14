@@ -164,7 +164,7 @@
 
             if (availableImages.length === 0) {
                 const message = document.createElement('div');
-                message.textContent = 'beeフォルダーに `001.png` から始まる連番の画像が見つかりません。';
+                message.textContent = 'beeフォルダーに `001.avif` から始まる連番の画像が見つかりません。';
                 message.className = 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white bg-black/50 p-4 rounded-lg';
                 document.body.appendChild(message);
                 return;
@@ -193,7 +193,7 @@
                 let imageIndex = 1;
                 const checkNextImage = () => {
                     const imageName = String(imageIndex).padStart(3, '0');
-                    const imagePath = `bee/${imageName}.png`;
+                    const imagePath = `bee/${imageName}.avif`;
                     const img = new Image();
                     img.onload = () => {
                         foundImages.push(imagePath);
