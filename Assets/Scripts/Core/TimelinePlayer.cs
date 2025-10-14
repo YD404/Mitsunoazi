@@ -21,18 +21,25 @@ namespace Mitsunoazi
 
         public void Play(string imagePath, StatusManager.Status status, ClickType clickType)
         {
+            //// 既にタイムライン再生中の場合は警告
+            //if (Director.IsTimelinePlaying)
+            //{
+            //    Debug.LogWarning($"[TimelinePlayer] タイムラインが既に再生中です。新しい再生リクエストを拒否: {status}, {clickType}");
+            //    return;
+            //}
+
             Debug.Log($"[TimelinePlayer] タイムライン再生開始 - ステータス: {status}, 画像: {imagePath}, クリック: {clickType}");
 
-            Director.IsTimelinePlaying = true;
-            Debug.Log($"[TimelinePlayer] タイムライン再生フラグをONに設定");
+            //Director.IsTimelinePlaying = true;
+            //Debug.Log($"[TimelinePlayer] タイムライン再生フラグをONに設定");
 
             List<GameObject> targetList = GetPrefabListByStatus(status);
 
             if (targetList == null || targetList.Count == 0)
             {
-                Debug.LogWarning($"[TimelinePlayer] ステータス {status} に対応するタイムラインプレハブがありません");
-                Director.IsTimelinePlaying = false;
-                Debug.Log($"[TimelinePlayer] 再生失敗のためフラグをOFFに設定");
+                //Debug.LogWarning($"[TimelinePlayer] ステータス {status} に対応するタイムラインプレハブがありません");
+                //Director.IsTimelinePlaying = false;
+                //Debug.Log($"[TimelinePlayer] 再生失敗のためフラグをOFFに設定");
                 return;
             }
 
