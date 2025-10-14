@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蜂の飛行アニメーション</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* ページのスクロールバーを非表示にする */
+        body {
+            overflow: hidden;
+            cursor: default;
+            margin: 0;
+        }
+        /* 背景コンテナ */
+        #background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+        /* 蜂のコンテナ */
+        #bee-container {
+            position: relative;
+            z-index: 1;
+        }
+        /* 【変更】前景画像のスタイルを更新 */
+        #foreground-image {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100vw; /* 画面の幅に合わせる */
+            height: 100vh; /* 画面の高さに合わせる */
+            object-fit: cover; /* アスペクト比を維持しつつ、要素全体を覆う */
+            object-position: bottom; /* 画像の下部を基準に配置 */
+            pointer-events: none;
+            z-index: 2;
+            transform-origin: center center; /* 回転・拡大の基準点を中央に */
+            transition: transform 0.2s ease-out; /* 回転時にアニメーション */
+        }
+        /* ローディング表示 */
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+        /* 蜂の画像 */
+        .bee {
+            position: absolute;
+            user-select: none;
+            -webkit-user-drag: none;
+            will-change: transform;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="background-container"></div>
+    <div id="loading" class="text-white text-2xl font-bold bg-black/50 p-6 rounded-lg">読み込み中...</div>
+    <div id="bee-container"></div>
+    <img id="foreground-image" src="" alt="">
+
+    <script>
+        // --- 設定項目 ---
+        // 【変更】背景画像のパス
+        const backgroundImagePath = 'background.avif';
+        const foregroundImagePath = 'foreground.avif';
+        const maxImageTypes = 50;
+        const beesPerImage = 1;
+        const minSize = 25;
+        const maxSize = 150;
+        const minSpeed = 0.5;
+        const maxSpeed = 2.5;
+
+        // --- ここから下のコードは変更不要です ---
+        const container = document.getElementById('bee-container');
+        const loadingElement = document.getElementById('loading');
+        const backgroundContainer = document.getElementById('background-container');
+        const foregroundImageElement = document.getElementById('foreground-image');
+        const bees = [];
+
+        /**
+         * 【追加】前景画像の回転とスケールを画面のアスペクト比に応じて調整します。
+         */
+        function adjustForegroundImage() {
+            if (!foregroundImagePath) return; // 前景画像がなければ何もしない
+
+            const isPortrait = window.innerHeight > window.innerWidth;
+            
+            if (isPortrait) {
+                // 縦長画面の場合: 90度回転し、画面の高さが画像の幅に合うように拡大する
+                const scale = window.innerHeight / window.innerWidth;
+                foregroundImageElement.style.transform = `rotate(90deg) scale(${scale})`;
+            } else {
+                // 横長画面の場合: 回転と拡大をリセット
+                foregroundImageElement.style.transform = 'none';
+            }
+        }
+
+        /**
+         * 背景と前景の画像を設定します。
+         */
+        function setupScenery() {
+            if (backgroundImagePath) {
+                 backgroundContainer.style.backgroundImage = `url('${backgroundImagePath}')`;
+            }
+
+            if (foregroundImagePath) {
+                foregroundImageElement.src = foregroundImagePath;
+                foregroundImageElement.style.display = 'block';
+            } else {
+                foregroundImageElement.style.display = 'none';
+            }
+            
+            // 【追加】初期表示のために一度呼び出す
+            adjustForegroundImage();
+        }
+
+        /**
+         * 指定された範囲内のランダムな数値を生成します。
+         */
+        function getRandom(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+        
+        /**
+         * 蜂のDOM要素を生成し、画面に追加します。
+         */
+        function createBeesForImage(imagePath) {
+            for (let i = 0; i < beesPerImage; i++) {
+                const beeElement = document.createElement('img');
+                beeElement.src = imagePath;
+                beeElement.classList.add('bee');
+                container.appendChild(beeElement);
+                const size = getRandom(minSize, maxSize);
+                beeElement.style.width = `${size}px`;
+                beeElement.style.height = 'auto';
+                bees.push({
+                    el: beeElement,
+                    x: getRandom(0, window.innerWidth - size),
+                    y: getRandom(0, window.innerHeight - size),
+                    vx: getRandom(-maxSpeed, maxSpeed) || minSpeed,
+                    vy: getRandom(-maxSpeed, maxSpeed) || minSpeed,
+                    size: size,
+                    isTurning: false,
+                    turnProgress: 1,
+                });
+            }
+        }
+
+        /**
+         * beeフォルダー内の画像を探索し、蜂を生成します。
+         */
+        async function loadRandomBees() {
+            const availableImages = await findAvailableImages();
+            loadingElement.style.display = 'none';
+
+            if (availableImages.length === 0) {
+                const message = document.createElement('div');
+                message.textContent = 'beeフォルダーに `001.png` から始まる連番の画像が見つかりません。';
+                message.className = 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white bg-black/50 p-4 rounded-lg';
+                document.body.appendChild(message);
+                return;
+            }
+
+            for (let i = availableImages.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [availableImages[i], availableImages[j]] = [availableImages[j], availableImages[i]];
+            }
+
+            const selectedImages = availableImages.slice(0, maxImageTypes);
+            console.log(`${availableImages.length}種類の画像を発見。そのうち${selectedImages.length}種類をランダムに表示します。`);
+            selectedImages.forEach(imagePath => createBeesForImage(imagePath));
+            
+            if(bees.length > 0) {
+                animate();
+            }
+        }
+
+        /**
+         * 利用可能な蜂の画像を探索します。
+         */
+        function findAvailableImages() {
+            return new Promise(resolve => {
+                const foundImages = [];
+                let imageIndex = 1;
+                const checkNextImage = () => {
+                    const imageName = String(imageIndex).padStart(3, '0');
+                    const imagePath = `bee/${imageName}.png`;
+                    const img = new Image();
+                    img.onload = () => {
+                        foundImages.push(imagePath);
+                        imageIndex++;
+                        checkNextImage();
+                    };
+                    img.onerror = () => resolve(foundImages);
+                    img.src = imagePath;
+                };
+                checkNextImage();
+            });
+        }
+
+        /**
+         * 蜂のアニメーションを処理します。
+         */
+        function animate() {
+            bees.forEach(bee => {
+                bee.x += bee.vx;
+                bee.y += bee.vy;
+
+                if (bee.x <= 0 || bee.x >= window.innerWidth - bee.size) {
+                    const newVx = bee.vx * -1;
+                    if (Math.sign(newVx) !== Math.sign(bee.vx) && !bee.isTurning) {
+                        bee.isTurning = true;
+                        bee.turnProgress = 0;
+                        bee.oldScaleX = bee.vx < 0 ? 1 : -1;
+                    }
+                    bee.vx = newVx;
+                    bee.x = Math.max(0, Math.min(bee.x, window.innerWidth - bee.size));
+                }
+                if (bee.y <= 0 || bee.y >= window.innerHeight - bee.size) {
+                    bee.vy *= -1;
+                    bee.y = Math.max(0, Math.min(bee.y, window.innerHeight - bee.size));
+                }
+
+                let scaleX = bee.vx < 0 ? 1 : -1;
+                if (bee.isTurning) {
+                    bee.turnProgress += 0.1;
+                    if (bee.turnProgress >= 1.0) {
+                        bee.isTurning = false;
+                        scaleX = bee.vx < 0 ? 1 : -1;
+                    } else {
+                        if (bee.turnProgress < 0.5) {
+                            scaleX = bee.oldScaleX * (1 - (bee.turnProgress * 2));
+                        } else {
+                            const newScaleX = bee.vx < 0 ? 1 : -1;
+                            scaleX = newScaleX * ((bee.turnProgress - 0.5) * 2);
+                        }
+                    }
+                }
+                bee.el.style.transform = `translate(${bee.x}px, ${bee.y}px) scaleX(${scaleX})`;
+            });
+            requestAnimationFrame(animate);
+        }
+
+        // --- 初期化処理 ---
+
+        // 【追加】ウィンドウサイズ変更時に前景画像を調整するイベントリスナー
+        window.addEventListener('resize', adjustForegroundImage);
+
+        setupScenery();
+        loadRandomBees();
+
+    </script>
+</body>
+</html>
