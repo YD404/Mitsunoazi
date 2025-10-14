@@ -11,6 +11,7 @@
             overflow: hidden;
             cursor: default;
             margin: 0;
+            background-color: #333; /* 背景画像を読み込むまでの背景色 */
         }
         /* 背景コンテナ */
         #background-container {
@@ -29,7 +30,7 @@
             position: relative;
             z-index: 1;
         }
-        /* 【変更】前景画像のスタイルを更新 */
+        /* 前景画像のスタイル */
         #foreground-image {
             position: fixed;
             bottom: 0;
@@ -63,39 +64,42 @@
 <body>
 
     <div id="background-container"></div>
-    <div id="loading" class="text-white text-2xl font-bold bg-black/50 p-6 rounded-lg">読み込み中...</div>
+    <div id="loading" class="text-white text-2xl font-bold bg-black/50 p-6 rounded-lg">画像を検索中...</div>
     <div id="bee-container"></div>
     <img id="foreground-image" src="" alt="">
 
     <script>
         // --- 設定項目 ---
-        // 【変更】背景画像のパス
-        const backgroundImagePath = 'background.avif';
-        const foregroundImagePath = 'foreground.avif';
-        const maxImageTypes = 50;
-        const beesPerImage = 1;
-        const minSize = 25;
-        const maxSize = 150;
-        const minSpeed = 0.5;
-        const maxSpeed = 2.5;
+        const backgroundImagePath = 'background.avif'; // 背景画像のパス
+        const foregroundImagePath = 'foreground.avif'; // 前景画像のパス
+        const maxImageTypes = 50;   // 同時に画面に表示する蜂の種類の最大数
+        const beesPerImage = 1;     // 1種類の画像あたりの蜂の数
+        const minSize = 25;         // 蜂の最小サイズ
+        const maxSize = 150;        // 蜂の最大サイズ
+        const minSpeed = 0.5;       // 蜂の最小速度
+        const maxSpeed = 2.5;       // 蜂の最大速度
 
         // --- ここから下のコードは変更不要です ---
         const container = document.getElementById('bee-container');
         const loadingElement = document.getElementById('loading');
         const backgroundContainer = document.getElementById('background-container');
         const foregroundImageElement = document.getElementById('foreground-image');
+        
         const bees = [];
+        let availableImages = []; // 利用可能な全画像パスのリスト
+        let displayedImagePaths = new Set(); // 現在表示中の画像パスのセット
+        let isAnimating = false;
 
         /**
-         * 【追加】前景画像の回転とスケールを画面のアスペクト比に応じて調整します。
+         * 前景画像の回転とスケールを画面のアスペクト比に応じて調整します。
          */
         function adjustForegroundImage() {
-            if (!foregroundImagePath) return; // 前景画像がなければ何もしない
+            if (!foregroundImagePath) return; 
 
             const isPortrait = window.innerHeight > window.innerWidth;
             
             if (isPortrait) {
-                // 縦長画面の場合: 90度回転し、画面の高さが画像の幅に合うように拡大する
+                // 縦長画面の場合: 90度回転し、画面の高さが画像の幅に合うように拡大
                 const scale = window.innerHeight / window.innerWidth;
                 foregroundImageElement.style.transform = `rotate(90deg) scale(${scale})`;
             } else {
@@ -109,7 +113,7 @@
          */
         function setupScenery() {
             if (backgroundImagePath) {
-                 backgroundContainer.style.backgroundImage = `url('${backgroundImagePath}')`;
+                backgroundContainer.style.backgroundImage = `url('${backgroundImagePath}')`;
             }
 
             if (foregroundImagePath) {
@@ -119,7 +123,6 @@
                 foregroundImageElement.style.display = 'none';
             }
             
-            // 【追加】初期表示のために一度呼び出す
             adjustForegroundImage();
         }
 
@@ -131,7 +134,7 @@
         }
         
         /**
-         * 蜂のDOM要素を生成し、画面に追加します。
+         * 指定された画像パスで蜂のDOM要素を生成し、画面に追加します。
          */
         function createBeesForImage(imagePath) {
             for (let i = 0; i < beesPerImage; i++) {
@@ -151,60 +154,114 @@
                     size: size,
                     isTurning: false,
                     turnProgress: 1,
+                    imagePath: imagePath, // 【追加】どの画像を使っているか保持
                 });
             }
         }
 
         /**
-         * beeフォルダー内の画像を探索し、蜂を生成します。
+         * 【新規】次の画像切り替えをスケジュールします。
          */
-        async function loadRandomBees() {
-            const availableImages = await findAvailableImages();
-            loadingElement.style.display = 'none';
-
-            if (availableImages.length === 0) {
-                const message = document.createElement('div');
-                message.textContent = 'beeフォルダーに `001.avif` から始まる連番の画像が見つかりません。';
-                message.className = 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white bg-black/50 p-4 rounded-lg';
-                document.body.appendChild(message);
-                return;
-            }
-
-            for (let i = availableImages.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [availableImages[i], availableImages[j]] = [availableImages[j], availableImages[i]];
-            }
-
-            const selectedImages = availableImages.slice(0, maxImageTypes);
-            console.log(`${availableImages.length}種類の画像を発見。そのうち${selectedImages.length}種類をランダムに表示します。`);
-            selectedImages.forEach(imagePath => createBeesForImage(imagePath));
-            
-            if(bees.length > 0) {
-                animate();
-            }
+        function scheduleImageChange() {
+            const delay = getRandom(10000, 20000); // 10秒から20秒のランダムな間隔
+            setTimeout(changeRandomBeeImage, delay);
         }
 
         /**
-         * 利用可能な蜂の画像を探索します。
+         * 【新規】表示されている蜂の画像をランダムに1つ、まだ使われていない画像に差し替えます。
          */
-        function findAvailableImages() {
-            return new Promise(resolve => {
-                const foundImages = [];
-                let imageIndex = 1;
-                const checkNextImage = () => {
-                    const imageName = String(imageIndex).padStart(3, '0');
-                    const imagePath = `bee/${imageName}.avif`;
-                    const img = new Image();
-                    img.onload = () => {
-                        foundImages.push(imagePath);
-                        imageIndex++;
-                        checkNextImage();
-                    };
-                    img.onerror = () => resolve(foundImages);
-                    img.src = imagePath;
+        function changeRandomBeeImage() {
+            // 未使用の画像のリストを作成
+            const unusedImages = availableImages.filter(path => !displayedImagePaths.has(path));
+            
+            // 交代できる蜂や未使用画像がなければ、次のチェックを予約して終了
+            if (bees.length === 0 || unusedImages.length === 0) {
+                scheduleImageChange();
+                return;
+            }
+
+            // 1. 新しい画像を未使用リストからランダムに選択
+            const newImagePath = unusedImages[Math.floor(Math.random() * unusedImages.length)];
+
+            // 2. 交代させる蜂をランダムに選択
+            const beeToChange = bees[Math.floor(Math.random() * bees.length)];
+            const oldImagePath = beeToChange.imagePath;
+
+            // 3. 蜂の画像と内部データを更新
+            beeToChange.el.src = newImagePath;
+            beeToChange.imagePath = newImagePath;
+
+            // 4. 表示中の画像セットを更新
+            displayedImagePaths.add(newImagePath);
+            
+            // 5. 古い画像が他の蜂で使われていないかチェックし、使われていなければセットから削除
+            const isOldImageStillInUse = bees.some(bee => bee.imagePath === oldImagePath);
+            if (!isOldImageStillInUse) {
+                displayedImagePaths.delete(oldImagePath);
+            }
+
+            // 6. 次の切り替えを予約
+            scheduleImageChange();
+        }
+
+
+        /**
+         * 【変更】beeフォルダー内の画像を探索し、見つけ次第、蜂を生成して表示します。
+         */
+        function loadAndDisplayBees() {
+            let imageIndex = 1;
+
+            const checkNextImage = () => {
+                const imageName = String(imageIndex).padStart(3, '0');
+                const imagePath = `bee/${imageName}.avif`;
+                const img = new Image();
+
+                img.onload = () => {
+                    // 画像の読み込みに成功
+                    availableImages.push(imagePath);
+                    if(loadingElement) loadingElement.style.display = 'none';
+
+                    // 表示上限に達していなければ、新しい蜂を生成
+                    if (displayedImagePaths.size < maxImageTypes) {
+                        createBeesForImage(imagePath);
+                        displayedImagePaths.add(imagePath);
+
+                        // 最初の蜂が生成されたらアニメーションを開始
+                        if (!isAnimating && bees.length > 0) {
+                            animate();
+                            isAnimating = true;
+                        }
+                    }
+
+                    // 次の画像の探索を続ける
+                    imageIndex++;
+                    checkNextImage();
                 };
-                checkNextImage();
-            });
+
+                img.onerror = () => {
+                    // これ以上画像が見つからなかった時（探索終了）
+                    console.log(`${availableImages.length}種類の画像を発見しました。`);
+                    if (loadingElement) loadingElement.style.display = 'none';
+                    
+                    if (availableImages.length === 0) {
+                        const message = document.createElement('div');
+                        message.textContent = 'beeフォルダーに `001.avif` から始まる連番の画像が見つかりません。';
+                        message.className = 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white bg-black/50 p-4 rounded-lg';
+                        document.body.appendChild(message);
+                        return;
+                    }
+
+                    // 利用可能な画像が表示上限を超えている場合、定期的な入れ替え処理を開始
+                    if (availableImages.length > maxImageTypes) {
+                        console.log(`表示上限(${maxImageTypes}種類)を超えているため、10〜20秒ごとに画像を入れ替えます。`);
+                        scheduleImageChange();
+                    }
+                };
+
+                img.src = imagePath;
+            };
+
+            checkNextImage();
         }
 
         /**
@@ -215,6 +272,7 @@
                 bee.x += bee.vx;
                 bee.y += bee.vy;
 
+                // 壁での反射処理と向きの反転
                 if (bee.x <= 0 || bee.x >= window.innerWidth - bee.size) {
                     const newVx = bee.vx * -1;
                     if (Math.sign(newVx) !== Math.sign(bee.vx) && !bee.isTurning) {
@@ -230,6 +288,7 @@
                     bee.y = Math.max(0, Math.min(bee.y, window.innerHeight - bee.size));
                 }
 
+                // 蜂が向きを変える際のアニメーション
                 let scaleX = bee.vx < 0 ? 1 : -1;
                 if (bee.isTurning) {
                     bee.turnProgress += 0.1;
@@ -251,12 +310,9 @@
         }
 
         // --- 初期化処理 ---
-
-        // 【追加】ウィンドウサイズ変更時に前景画像を調整するイベントリスナー
         window.addEventListener('resize', adjustForegroundImage);
-
         setupScenery();
-        loadRandomBees();
+        loadAndDisplayBees();
 
     </script>
 </body>
