@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +12,10 @@
             overflow: hidden;
             cursor: default;
             margin: 0;
-            background-color: #333; /* 背景画像を読み込むまでの背景色 */
+            background-color: #333;
+            /* 背景画像を読み込むまでの背景色 */
         }
+
         /* 背景コンテナ */
         #background-container {
             position: fixed;
@@ -25,25 +28,34 @@
             background-repeat: no-repeat;
             z-index: -1;
         }
+
         /* 蜂のコンテナ */
         #bee-container {
             position: relative;
             z-index: 1;
         }
+
         /* 前景画像のスタイル */
         #foreground-image {
             position: fixed;
             bottom: 0;
             left: 0;
-            width: 100vw; /* 画面の幅に合わせる */
-            height: 100vh; /* 画面の高さに合わせる */
-            object-fit: cover; /* アスペクト比を維持しつつ、要素全体を覆う */
-            object-position: bottom; /* 画像の下部を基準に配置 */
+            width: 100vw;
+            /* 画面の幅に合わせる */
+            height: 100vh;
+            /* 画面の高さに合わせる */
+            object-fit: cover;
+            /* アスペクト比を維持しつつ、要素全体を覆う */
+            object-position: bottom;
+            /* 画像の下部を基準に配置 */
             pointer-events: none;
             z-index: 2;
-            transform-origin: center center; /* 回転・拡大の基準点を中央に */
-            transition: transform 0.2s ease-out; /* 回転時にアニメーション */
+            transform-origin: center center;
+            /* 回転・拡大の基準点を中央に */
+            transition: transform 0.2s ease-out;
+            /* 回転時にアニメーション */
         }
+
         /* ローディング表示 */
         #loading {
             position: absolute;
@@ -52,6 +64,7 @@
             transform: translate(-50%, -50%);
             z-index: 10;
         }
+
         /* 蜂の画像 */
         .bee {
             position: absolute;
@@ -61,6 +74,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div id="background-container"></div>
@@ -84,7 +98,7 @@
         const loadingElement = document.getElementById('loading');
         const backgroundContainer = document.getElementById('background-container');
         const foregroundImageElement = document.getElementById('foreground-image');
-        
+
         const bees = [];
         let availableImages = []; // 利用可能な全画像パスのリスト
         let displayedImagePaths = new Set(); // 現在表示中の画像パスのセット
@@ -94,10 +108,10 @@
          * 前景画像の回転とスケールを画面のアスペクト比に応じて調整します。
          */
         function adjustForegroundImage() {
-            if (!foregroundImagePath) return; 
+            if (!foregroundImagePath) return;
 
             const isPortrait = window.innerHeight > window.innerWidth;
-            
+
             if (isPortrait) {
                 // 縦長画面の場合: 90度回転し、画面の高さが画像の幅に合うように拡大
                 const scale = window.innerHeight / window.innerWidth;
@@ -122,7 +136,7 @@
             } else {
                 foregroundImageElement.style.display = 'none';
             }
-            
+
             adjustForegroundImage();
         }
 
@@ -132,7 +146,7 @@
         function getRandom(min, max) {
             return Math.random() * (max - min) + min;
         }
-        
+
         /**
          * 指定された画像パスで蜂のDOM要素を生成し、画面に追加します。
          */
@@ -169,38 +183,55 @@
 
         /**
          * 【新規】表示されている蜂の画像をランダムに1つ、まだ使われていない画像に差し替えます。
-         */
+         *//**
+        * 【変更後】表示されている蜂の画像をランダムに「1枚から10枚」、まだ使われていない画像に差し替えます。
+        */
         function changeRandomBeeImage() {
-            // 未使用の画像のリストを作成
-            const unusedImages = availableImages.filter(path => !displayedImagePaths.has(path));
-            
+            // 1. 今回変更する枚数を1枚から10枚の範囲でランダムに決定
+            const changeCount = Math.floor(Math.random() * 10) + 1;
+
+            // 未使用の画像のリストを作成（ループ中に変化するのでletで宣言）
+            let unusedImages = availableImages.filter(path => !displayedImagePaths.has(path));
+
             // 交代できる蜂や未使用画像がなければ、次のチェックを予約して終了
             if (bees.length === 0 || unusedImages.length === 0) {
                 scheduleImageChange();
                 return;
             }
 
-            // 1. 新しい画像を未使用リストからランダムに選択
-            const newImagePath = unusedImages[Math.floor(Math.random() * unusedImages.length)];
+            // 2. 決定した枚数分、画像の入れ替えを繰り返す
+            for (let i = 0; i < changeCount; i++) {
+                // 未使用画像がなくなったらループを終了
+                if (unusedImages.length === 0) {
+                    break;
+                }
 
-            // 2. 交代させる蜂をランダムに選択
-            const beeToChange = bees[Math.floor(Math.random() * bees.length)];
-            const oldImagePath = beeToChange.imagePath;
+                // a. 新しい画像を未使用リストからランダムに選択
+                const newImageIndex = Math.floor(Math.random() * unusedImages.length);
+                const newImagePath = unusedImages[newImageIndex];
 
-            // 3. 蜂の画像と内部データを更新
-            beeToChange.el.src = newImagePath;
-            beeToChange.imagePath = newImagePath;
+                // b. 交代させる蜂をランダムに選択
+                const beeToChange = bees[Math.floor(Math.random() * bees.length)];
+                const oldImagePath = beeToChange.imagePath;
 
-            // 4. 表示中の画像セットを更新
-            displayedImagePaths.add(newImagePath);
-            
-            // 5. 古い画像が他の蜂で使われていないかチェックし、使われていなければセットから削除
-            const isOldImageStillInUse = bees.some(bee => bee.imagePath === oldImagePath);
-            if (!isOldImageStillInUse) {
-                displayedImagePaths.delete(oldImagePath);
+                // c. 蜂の画像と内部データを更新
+                beeToChange.el.src = newImagePath;
+                beeToChange.imagePath = newImagePath;
+
+                // d. 表示中の画像セットを更新
+                displayedImagePaths.add(newImagePath);
+
+                // e. このループで一度使った画像を未使用リストから削除
+                unusedImages.splice(newImageIndex, 1);
+
+                // f. 古い画像が他の蜂で使われていないかチェックし、使われていなければセットから削除
+                const isOldImageStillInUse = bees.some(bee => bee.imagePath === oldImagePath);
+                if (!isOldImageStillInUse) {
+                    displayedImagePaths.delete(oldImagePath);
+                }
             }
 
-            // 6. 次の切り替えを予約
+            // 3. 次の切り替えを予約
             scheduleImageChange();
         }
 
@@ -219,7 +250,7 @@
                 img.onload = () => {
                     // 画像の読み込みに成功
                     availableImages.push(imagePath);
-                    if(loadingElement) loadingElement.style.display = 'none';
+                    if (loadingElement) loadingElement.style.display = 'none';
 
                     // 表示上限に達していなければ、新しい蜂を生成
                     if (displayedImagePaths.size < maxImageTypes) {
@@ -242,7 +273,7 @@
                     // これ以上画像が見つからなかった時（探索終了）
                     console.log(`${availableImages.length}種類の画像を発見しました。`);
                     if (loadingElement) loadingElement.style.display = 'none';
-                    
+
                     if (availableImages.length === 0) {
                         const message = document.createElement('div');
                         message.textContent = 'beeフォルダーに `001.avif` から始まる連番の画像が見つかりません。';
@@ -316,4 +347,5 @@
 
     </script>
 </body>
+
 </html>
